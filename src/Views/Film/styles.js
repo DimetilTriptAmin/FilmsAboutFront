@@ -8,10 +8,17 @@ const useStyles = makeStyles((theme) => ({
 
   poster: {
     height: "500px",
-    width: "100%",
+    width: "350px",
   },
 
   text: {
+    color: "#fff",
+    padding: "0",
+    alignSelf: "center",
+  },
+
+  rateText: {
+    marginRight: "5px",
     color: "#fff",
     padding: "0",
     alignSelf: "center",
@@ -30,11 +37,11 @@ const useStyles = makeStyles((theme) => ({
   title: {
     display: "flex",
     marginBottom: "30px",
+    justifyContent: "space-between",
   },
 
   fetchedRate: {
     display: "flex",
-    marginLeft: "50px",
   },
 
   userRate: {
@@ -43,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   rating: {
-    fontSize: "50px",
+    fontSize: "45px",
   },
 }));
 

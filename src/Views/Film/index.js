@@ -25,18 +25,18 @@ const Film = ({ value, onChange }) => {
               src='https://i.pinimg.com/originals/30/59/ca/3059caf3374bdf0973745591797d2bcb.jpg'
               alt='poster'
             />
+            <div className={classes.userRate}>
+              <Typography className={classes.rateText} variant='h5'>
+                Rate it:
+              </Typography>
+              <Rating
+                className={classes.rating}
+                name='simple-controlled'
+                value={value}
+                onChange={onChange}
+              />
+            </div>
           </Container>
-          <div className={classes.userRate}>
-            <Typography className={classes.text} variant='h5'>
-              Your rate:
-            </Typography>
-            <Rating
-              className={classes.rating}
-              name='simple-controlled'
-              value={value}
-              onChange={onChange}
-            />
-          </div>
         </Grid>
         <Grid item xs={8}>
           <Container>
@@ -51,7 +51,7 @@ const Film = ({ value, onChange }) => {
                 </Typography>
               </div>
             </div>
-            <Typography className={classes.text} variant='h6'>
+            <Typography className={classes.text} variant='h6' align='justify'>
               Один ушлый американец ещё со студенческих лет приторговывал
               наркотиками, а теперь придумал схему нелегального обогащения с
               использованием поместий обедневшей английской аристократии и очень
