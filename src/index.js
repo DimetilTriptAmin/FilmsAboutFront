@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {FilmContainer} from './Containers/FilmContainer/FilmContainer';
+import {FilmCardListContainer} from './Containers/FilmCardListContainer';
 
 ReactDOM.render(
   <React.StrictMode>
-    <FilmContainer />
+    <FilmCardListContainer />
   </React.StrictMode>,
   document.getElementById('root')
 );
