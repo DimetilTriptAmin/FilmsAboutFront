@@ -2,7 +2,6 @@ import { alpha, makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   header: {
-    position: "static",
     backgroundColor: "#242322",
   },
   grow: {

@@ -29,11 +29,11 @@ const AccountMenu = ({
       </IconButton>
 
       <Menu
+        disableScrollLock={true}
         className={classes.menu}
         anchorEl={anchorEl}
         getContentAnchorEl={null}
         anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-        transformOrigin={{ vertical: "top", horizontal: "right" }}
         open={isMenuOpen}
         onClose={handleMenuClose}
       >
