@@ -4,25 +4,25 @@ import { red } from '@material-ui/core/colors';
 const useStyles = makeStyles((theme) => ({
     root: {
       maxWidth: 345,
+      backgroundColor: '#242322',
+    },
+    header: {
+      color: theme.palette.common.white,
+    },
+    rating: {
+      fontStyle: 'italic',
+      color: theme.palette.common.white,
     },
     media: {
-      height: 0,
-      paddingTop: '100%', // 16:9
-      resize: 'stretch',
+      paddingTop: '100%',
     },
-    expand: {
-      transform: 'rotate(0deg)',
-      marginLeft: 'auto',
-      transition: theme.transitions.create('transform', {
-        duration: theme.transitions.duration.shortest,
-      }),
+    cardContent: {
+      height: '100px',
+      color: 'white',
     },
-    expandOpen: {
-      transform: 'rotate(180deg)',
-    },
-    avatar: {
-      backgroundColor: red[500],
-    },
+    button: {
+      color: theme.palette.common.white,
+    }
   }));
 
   export {useStyles};

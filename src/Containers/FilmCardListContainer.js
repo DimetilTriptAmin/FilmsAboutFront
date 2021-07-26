@@ -1,4 +1,5 @@
 import { FilmCardContainer } from './FilmCardContainer';
+import {FilmCardList} from '../Views/FilmCardList';
 import { useEffect, useState } from 'react';
 
 const FilmCardListContainer = () => {
@@ -17,9 +18,7 @@ const FilmCardListContainer = () => {
 
     return (
         <div>
-            {films.map((film) => (
-                <FilmCardContainer key={film.id} film={film} />
-            ))}
+           <FilmCardList films={films}/>
         </div>
     );
 }
