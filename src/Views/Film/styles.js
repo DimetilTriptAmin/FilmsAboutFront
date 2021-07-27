@@ -6,9 +6,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#242322",
   },
 
-  poster: {
-    height: "500px",
-    width: "350px",
+  flex: {
+    display: "flex",
   },
 
   text: {
@@ -17,15 +16,31 @@ const useStyles = makeStyles((theme) => ({
     alignSelf: "center",
   },
 
+  flexWrap: {
+    flexWrap: "wrap",
+  },
+
+  poster: {
+    width: "400px",
+    margin: "0",
+  },
+
+  about: {
+    flexDirection: "column",
+    flex: "1 1 0",
+    margin: "0",
+  },
+
+  posterImg: {
+    height: "500px",
+    width: "350px",
+  },
+
   rateText: {
     marginRight: "5px",
-    color: "#fff",
-    padding: "0",
-    alignSelf: "center",
   },
 
   playerContainer: {
-    display: "flex",
     justifyContent: "center",
     margin: "40px",
   },
@@ -35,17 +50,11 @@ const useStyles = makeStyles((theme) => ({
   },
 
   title: {
-    display: "flex",
     marginBottom: "30px",
     justifyContent: "space-between",
   },
 
-  fetchedRate: {
-    display: "flex",
-  },
-
   userRate: {
-    display: "flex",
     margin: "20px",
   },
 
@@ -53,9 +62,9 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "45px",
   },
 
-  loader: {
-    display: "flex",
-    marginTop: "10%",
+  metaComponent: {
+    height: "100vh",
+    margin: "auto",
     justifyContent: "center",
   },
 }));
