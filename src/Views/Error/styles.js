@@ -1,18 +1,18 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
-  headerContainer: {
-    margin: "auto",
+  baseFlexElement: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
   },
 
+  headerContainer: {
+    margin: "auto",
+  },
+
   header: {
     width: "70%",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
   },
 
   text: {

@@ -7,8 +7,8 @@ const Error = ({ message }) => {
   const classes = useStyles();
 
   return (
-    <div className={classes.headerContainer}>
-      <div className={classes.header}>
+    <div className={`${classes.baseFlexElement} ${classes.headerContainer}`}>
+      <div className={`${classes.baseFlexElement} ${classes.header}`}>
         <ErrorOutline style={{ fontSize: 200, color: "#fff" }} />
         <p className={classes.text}>{message}</p>
       </div>
