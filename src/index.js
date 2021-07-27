@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import FilmContainer from "./Containers/FilmContainer";
 import HeaderContainer from "./Containers/HeaderContainer";
-import Film from "./Views/Film";
 
 ReactDOM.render(
   <React.StrictMode>
     <HeaderContainer />
-    <Film />
+    <FilmContainer />
   </React.StrictMode>,
   document.getElementById("root"),
 );

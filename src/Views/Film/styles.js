@@ -52,6 +52,12 @@ const useStyles = makeStyles((theme) => ({
   rating: {
     fontSize: "45px",
   },
+
+  loader: {
+    display: "flex",
+    marginTop: "10%",
+    justifyContent: "center",
+  },
 }));
 
 export default useStyles;
