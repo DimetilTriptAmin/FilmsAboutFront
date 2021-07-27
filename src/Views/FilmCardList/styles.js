@@ -12,7 +12,7 @@ const useStyles = makeStyles(() => ({
         alignItems: 'center',
     },
     title: {
-        marginTop: '40px',
+        marginTop: '130px',
         fontSize: '32px',
         fontWeight: 'bold',
         textAlign: 'center',
