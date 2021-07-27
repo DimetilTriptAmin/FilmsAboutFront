@@ -1,25 +1,18 @@
 import { useState, useEffect } from "react";
 import Film from "../Views/Film";
+import { useDispatch, useSelector } from "react-redux";
+import { filmRequest } from "../redux/actions";
 
-import API from "../Axios/index";
+const FilmContainer = ({id}) => {
 
-const FilmContainer = () => {
-  const [value, setValue] = useState(0);
-
-  const [filmData, setFilmData] = useState();
+  const dispatch = useDispatch();
+  const filmData = useSelector(state => state.film);
 
   useEffect(() => {
-    const apiUrl = "https://localhost:44364/api/Film/3";
-    API.get(apiUrl).then((resp) => {
-      setFilmData(resp.data);
-    });
-  }, [setFilmData]);
+    dispatch(filmRequest());
+  }, []);
 
-  const onChange = (value) => {
-    setValue(value);
-  };
-
-  return <Film value={value} onChange={onChange} filmData={filmData} />;
+  return <Film filmData={filmData} />;
 };
 
 export default FilmContainer;

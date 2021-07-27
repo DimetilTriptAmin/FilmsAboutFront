@@ -11,7 +11,7 @@ export const filmSlice = createSlice({
         trailerLink: '',
     },
     reducers: {
-        dataRequested: (state, action) => {
+        filmFetched: (state, action) => {
             state.id = action.payload.id;
             state.title = action.payload.title;
             state.poster = action.payload.poster;
@@ -22,5 +22,5 @@ export const filmSlice = createSlice({
     },
 });
 
-export const { dataRequested } = filmSlice.actions;
+export const { filmFetched } = filmSlice.actions;
 export default filmSlice.reducer;
