@@ -3,11 +3,10 @@ import { alpha, makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   menu: {
     "& .MuiPaper-root": {
-      backgroundColor: "#000",
+      backgroundColor: "#242322",
     },
   },
   menuItem: {
-    backgroundColor: "#000",
     color: "#fff",
     "&:hover": {
       backgroundColor: alpha(theme.palette.common.white, 0.2),
