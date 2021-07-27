@@ -6,6 +6,7 @@ import Film from "./Views/Film";
 import { Provider } from 'react-redux';
 import store from './redux/store';
 
+
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>
