@@ -1,16 +1,29 @@
-import { put, call, takeEvery } from 'redux-saga/effects';
-import { filmFetched } from '../slices/filmSlice';
+import { call, put, takeEvery } from "redux-saga/effects";
+import { axiosDefault } from "../../Axios";
+import { filmFetchedSuccess, filmFetchedFail } from "../slices/filmSlice";
 
-// todo add axios
-const fetchFilms = () => fetch('https://localhost:44364/api/Film/3');
-
-function* filmWorker() {
-    const data = yield call(fetchFilms);
-    const json = yield call(() => new Promise((res) => res(data.json())));
-    console.log(json);
-    yield put(filmFetched(json));
+function* sagaFilmRequest(data) {
+  try {
+    const errors = {};
+    const response = yield call(
+      axiosDefault,
+      `https://localhost:44364/api/Film/${data.payload}`,
+      "get",
+      errors,
+    );
+    if (!errors.hasErrors && response.status === 200)
+      yield put(filmFetchedSuccess(response.data));
+    else
+      yield put(
+        filmFetchedFail({
+          message: "Film request failed",
+        }),
+      );
+  } catch (err) {
+    console.log(err, "ERROR in Saga");
+  }
 }
 
 export function* filmWatcher() {
-    yield takeEvery('FILM_REQUEST', filmWorker);
+  yield takeEvery("FILM_REQUEST", sagaFilmRequest);
 }
