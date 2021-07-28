@@ -1,3 +1,3 @@
-import {createAction} from '@reduxjs/toolkit';
+import { createAction } from "@reduxjs/toolkit";
 
-export const filmRequest = createAction('FILM_REQUEST');
+export const filmRequest = createAction("FILM_REQUEST");

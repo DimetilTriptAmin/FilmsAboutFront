@@ -1,16 +1,15 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import Film from "../Views/Film";
 import { useDispatch, useSelector } from "react-redux";
 import { filmRequest } from "../redux/actions";
 
-const FilmContainer = ({id}) => {
-
+const FilmContainer = ({ id }) => {
   const dispatch = useDispatch();
-  const filmData = useSelector(state => state.film);
+  const filmData = useSelector((state) => state.film);
 
   useEffect(() => {
-    dispatch(filmRequest());
-  }, []);
+    dispatch(filmRequest(id));
+  });
 
   return <Film filmData={filmData} />;
 };

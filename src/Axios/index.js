@@ -1,6 +1,16 @@
 import axios from "axios";
 
-export default axios.create({
-  baseURL: "https://localhost:44364/api/",
-  responseType: "json",
-});
+export const axiosDefault = (url, method, errors, data) => {
+  return axios({
+    url,
+    method,
+    data,
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json; charset=utf-8",
+    },
+  }).catch((error) => {
+    errors.hasErrors = true;
+    errors.message = error.message;
+  });
+};
