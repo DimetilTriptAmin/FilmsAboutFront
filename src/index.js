@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { FilmCardListContainer } from "./Containers/FilmCardListContainer";
 import HeaderContainer from "./Containers/HeaderContainer";
 import { Provider } from "react-redux";
 import store from "./redux/store";

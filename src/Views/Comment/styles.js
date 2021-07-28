@@ -5,6 +5,10 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
   },
 
+  ratingContainer: {
+    alignItems: "center",
+  },
+
   commentContainer: {
     padding: "0px",
     backgroundColor: alpha(theme.palette.common.white, 0.1),
@@ -36,6 +40,10 @@ const useStyles = makeStyles((theme) => ({
     padding: "30px",
     margin: "10px",
     fontSize: "18px",
+  },
+
+  dateText: {
+    margin: "0 10px",
   },
 
   divider: {
