@@ -67,6 +67,16 @@ const useStyles = makeStyles((theme) => ({
     margin: "auto",
     justifyContent: "center",
   },
+
+  divider: {
+    height: "2px",
+    borderRadius: "50%",
+    backgroundColor: "#fff",
+  },
+
+  headerText: {
+    margin: "30px",
+  },
 }));
 
 export default useStyles;
