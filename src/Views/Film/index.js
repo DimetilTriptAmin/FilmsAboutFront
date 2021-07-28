@@ -1,14 +1,15 @@
 import React from "react";
 import ReactPlayer from "react-player";
-import { Container, Grid, Typography } from "@material-ui/core";
+import { Container, Typography } from "@material-ui/core";
 import Rating from "@material-ui/lab/Rating";
 import StarIcon from "@material-ui/icons/Star";
 import { Oval } from "@agney/react-loading";
 
 import useStyles from "./styles";
 import Error from "../Error";
+import CommentContainer from "../../Containers/CommentContainer";
 
-const Film = ({ value, onChange, filmData }) => {
+const Film = ({ filmData, comments }) => {
   const classes = useStyles();
   return (
     <Container maxWidth='lg'>
@@ -38,8 +39,8 @@ const Film = ({ value, onChange, filmData }) => {
                     <Rating
                       className={classes.rating}
                       name='simple-controlled'
-                      value={value}
-                      onChange={onChange}
+                      //value={value}
+                      //onChange={onChange}
                     />
                   </div>
                 </Container>
@@ -79,6 +80,28 @@ const Film = ({ value, onChange, filmData }) => {
                   height='500px'
                 />
               </div>
+              <div className={classes.divider} />
+              <Container>
+                <Typography
+                  className={`${classes.text} ${classes.headerText}`}
+                  variant='h4'
+                  align='justify'
+                >
+                  Comments
+                </Typography>
+              </Container>
+              <div className={classes.divider} />
+              <Container maxWidth='lg'>
+                {comments.comments.map((comment, key) => (
+                  <CommentContainer
+                    text={comment.text}
+                    publishDate={comment.publishDate}
+                    userId={comment.userId}
+                    filmId={comment.filmId}
+                    key={key}
+                  />
+                ))}
+              </Container>
             </Container>
           )}
         </div>

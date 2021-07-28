@@ -11,7 +11,7 @@ ReactDOM.render(
     <React.StrictMode>
       <HeaderContainer />
       {/* <FilmCardListContainer /> */}
-      <FilmContainer id={4} />
+      <FilmContainer id={3} />
     </React.StrictMode>
   </Provider>,
   document.getElementById("root"),
