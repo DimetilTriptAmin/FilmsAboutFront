@@ -6,7 +6,7 @@ import StarIcon from "@material-ui/icons/Star";
 import { Oval } from "@agney/react-loading";
 
 import useStyles from "./styles";
-import Error from "../Error";
+import { ErrorOutline } from "@material-ui/icons";
 import CommentContainer from "../../Containers/CommentContainer";
 
 const Film = ({ filmData, comments }) => {
@@ -15,9 +15,11 @@ const Film = ({ filmData, comments }) => {
     <Container maxWidth='lg'>
       {!filmData.isLoading ? (
         <div>
-          {filmData.hasErrors ? (
+          {!filmData.Loaded ? (
             <div className={`${classes.metaComponent} ${classes.flex}`}>
-              <Error message={filmData.errorMessage} />
+              <ErrorOutline
+                style={{ fontSize: 200, color: "#fff", margin: "auto" }}
+              />
             </div>
           ) : (
             <Container className={classes.content}>

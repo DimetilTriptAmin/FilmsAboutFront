@@ -4,6 +4,7 @@ export const filmSlice = createSlice({
   name: "film",
   initialState: {
     isLoading: true,
+    Loaded: false,
     id: 0,
     title: "",
     poster: "",
@@ -14,6 +15,7 @@ export const filmSlice = createSlice({
   reducers: {
     filmFetchedSuccess: (state, action) => {
       state.isLoading = false;
+      state.Loaded = true;
       state.id = action.payload.id;
       state.title = action.payload.title;
       state.poster = action.payload.poster;
@@ -21,8 +23,11 @@ export const filmSlice = createSlice({
       state.rating = action.payload.rating;
       state.trailerLink = action.payload.trailerLink;
     },
+    filmFetchedFail: (state, action) => {
+      state.isLoading = false;
+    },
   },
 });
 
-export const { filmFetchedSuccess } = filmSlice.actions;
+export const { filmFetchedSuccess, filmFetchedFail } = filmSlice.actions;
 export default filmSlice.reducer;
