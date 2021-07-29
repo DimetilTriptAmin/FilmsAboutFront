@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import { FilmCardListContainer } from "./Containers/FilmCardListContainer";
-import FilmContainer from "./Containers/FilmContainer";
-import UserSettingsContainer from "./Containers/UserSettingsContainer";
-import NotFound from "./Views/NotFound";
+import FilmCardListContainer from "./containers/FilmCardListContainer";
+import FilmContainer from "./containers/FilmContainer";
+import UserSettingsContainer from "./containers/UserSettingsContainer";
+import NotFound from "./views/NotFound";
 
 const AppRouter = () => {
   return (

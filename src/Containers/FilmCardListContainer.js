@@ -1,19 +1,16 @@
-import { FilmCardList } from "../Views/FilmCardList";
-import { useEffect, useState } from "react";
+import { FilmCardList } from "../views/FilmCardList";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { filmListRequest } from "../redux/actions";
+import { filmListSelector } from "../redux/selectors";
 
 const FilmCardListContainer = () => {
-  const [films, setFilms] = useState([]);
+  const dispatch = useDispatch();
+  const { films } = useSelector(filmListSelector);
 
   useEffect(() => {
-    fetch("https://localhost:44364/api/Film")
-      .then((result) => result.json())
-      .then((result) => {
-        setFilms(result);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  });
+    dispatch(filmListRequest());
+  }, [dispatch]);
 
   return (
     <div>
@@ -22,4 +19,4 @@ const FilmCardListContainer = () => {
   );
 };
 
-export { FilmCardListContainer };
+export default FilmCardListContainer;

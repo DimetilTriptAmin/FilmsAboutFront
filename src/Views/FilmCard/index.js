@@ -25,12 +25,12 @@ const FilmCard = (props) => {
       />
       <CardMedia className={classes.media} image={fight_club_image} />
       <CardContent className={classes.cardContent}>
-        <Typography variant='body2' color='white' component='div'>
+        <Typography variant='body2' component='div'>
           {props.description}
         </Typography>
       </CardContent>
       <CardActions>
-        <Button className={classes.button} size='big'>
+        <Button className={classes.button} onClick={props.handleClick}>
           Learn More
         </Button>
       </CardActions>

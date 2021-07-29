@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-import CommentMenu from "../Views/CommentMenu";
+import CommentMenu from "../views/CommentMenu";
 
 const CommentMenuContainer = () => {
   const [anchorEl, setAnchorEl] = useState(null);

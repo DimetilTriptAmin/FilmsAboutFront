@@ -1,6 +1,6 @@
 import React from "react";
 
-import AuthorizationMenu from "../Views/AuthorizationMenu/index";
+import AuthorizationMenu from "../views/AuthorizationMenu/index";
 
 const AuthorizationMenuContainer = () => {
   return <AuthorizationMenu />;

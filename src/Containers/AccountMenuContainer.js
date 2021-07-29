@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-import AccountMenu from "../Views/AccountMenu";
+import AccountMenu from "../views/AccountMenu";
 
 const AccountMenuContainer = () => {
   const [anchorEl, setAnchorEl] = useState(null);

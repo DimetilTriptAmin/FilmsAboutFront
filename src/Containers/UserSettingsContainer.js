@@ -1,7 +1,7 @@
-import PropTypes from "prop-types";
-import { useState, useEffect } from "react";
-import UserSettings from "../views/UserSettings";
+import { useState } from "react";
 import axios from "axios";
+
+import UserSettings from "../views/UserSettings";
 
 const defaultImageSource = "/img/user_default.png";
 
@@ -33,10 +33,6 @@ const UserSettingsContainer = () => {
         onSuccess();
       })
       .catch((err) => console.log(err));
-  };
-
-  const getImage = () => {
-    userAPI().fetchById(10);
   };
 
   const resetForm = () => {

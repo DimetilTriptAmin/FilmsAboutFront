@@ -1,21 +1,15 @@
-import { FilmCard } from "../Views/FilmCard";
-import FilmContainer from "./FilmContainer";
+import { FilmCard } from "../views/FilmCard";
 import { withRouter } from "react-router";
 
-export const FilmCardContainer = (props) => {
-  const { id, title, description, poster, comments, trailerLink, rating } =
-    props.film;
+const FilmCardContainer = (props) => {
+  const { id, title, description, trailerLink, rating } = props.film;
 
-  // const handleClick = () => {
-  //     const titleData = document.getElementById("title").value;
-  //     const ratingData = document.getElementById("rating").value;
-  //     const requestOptions = {
-  //         method: 'POST',
-  //         headers: {'Content-Type': 'application/json'},
-  //         body: JSON.stringify({title: titleData, rating: ratingData})
-  //     };
-  //     fetch('https://localhost:44364/api/Film/add', requestOptions);
-  // }
+  const { history } = props;
+
+  const handleClick = () => {
+    const newLocation = "/film" + id;
+    history.push(newLocation);
+  };
 
   return (
     <FilmCard
@@ -24,8 +18,10 @@ export const FilmCardContainer = (props) => {
       description={description}
       rating={rating}
       trailerLink={trailerLink}
+      handleClick={handleClick}
     />
   );
 };
 
-export default withRouter(FilmCardContainer);
+const FilmCardContainerWithRouter = withRouter(FilmCardContainer);
+export default FilmCardContainerWithRouter;

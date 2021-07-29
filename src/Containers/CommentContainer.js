@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ratinfByPairIdRequest, userById } from "../redux/actions";
 import PropTypes from "prop-types";
 
-import Comment from "../Views/Comment";
+import Comment from "../views/Comment";
 
 const CommentContainer = ({ userId, filmId, publishDate, text }) => {
   const dispatch = useDispatch();

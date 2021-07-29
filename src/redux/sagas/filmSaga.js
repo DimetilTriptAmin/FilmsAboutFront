@@ -1,6 +1,6 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 
-import { axiosDefault } from "../../Axios";
+import { axiosDefault } from "../../axios";
 import { filmFetchedSuccess, filmFetchedFail } from "../slices/filmSlice";
 import { enqueueSnackbarError } from "../slices/notificationSlice";
 

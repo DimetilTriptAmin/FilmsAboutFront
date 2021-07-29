@@ -1,6 +1,6 @@
 import React from "react";
 
-import Header from "../Views/Header";
+import Header from "../views/Header";
 
 const HeaderContainer = () => {
   return <Header isAuthorized={true} />;

@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 
 import { filmRequest, commentsRequest } from "../redux/actions";
 import { filmDataSelector, filmCommentsSelector } from "../redux/selectors";
-import Film from "../Views/Film";
+import Film from "../views/Film";
 
 const FilmContainer = () => {
   const dispatch = useDispatch();
