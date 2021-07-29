@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
-    backgroundColor: "#242322",
+    backgroundColor: "#000000",
   },
   header: {
     color: theme.palette.common.white,

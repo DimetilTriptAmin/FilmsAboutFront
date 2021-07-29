@@ -1,17 +1,14 @@
 import React from 'react';
-import FilmContainer from './Containers/FilmContainer';
-import {FilmCardListContainer} from './Containers/FilmCardListContainer';
 import HeaderContainer from './Containers/HeaderContainer';
-import UserSettingsContainer from './Containers/UserSettingsContainer';
+import AppRouter from './AppRouter';
+import { Container } from '@material-ui/core';
 
 const App = () => {
     return (
-        <div>
+        <Container maxWidth='lg' style={{ backgroundColor: '#242322'}}>
             <HeaderContainer />
-            {/* <FilmCardListContainer /> */}
-            {/* <FilmContainer /> */}
-            <UserSettingsContainer />
-        </div>
+            <AppRouter />
+        </Container>
     );
 };
 

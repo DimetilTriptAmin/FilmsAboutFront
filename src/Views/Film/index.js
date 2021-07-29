@@ -6,7 +6,6 @@ import StarIcon from "@material-ui/icons/Star";
 import { Oval } from "@agney/react-loading";
 
 import useStyles from "./styles";
-import Error from "../Error";
 import CommentContainer from "../../Containers/CommentContainer";
 
 const Film = ({ filmData, comments }) => {
@@ -17,7 +16,6 @@ const Film = ({ filmData, comments }) => {
         <div>
           {filmData.hasErrors ? (
             <div className={`${classes.metaComponent} ${classes.flex}`}>
-              <Error message={filmData.errorMessage} />
             </div>
           ) : (
             <Container className={classes.content}>

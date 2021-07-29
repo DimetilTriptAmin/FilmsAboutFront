@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
   content: {
-    paddingTop: "150px",
+    padding: "150px 0 40px",
     backgroundColor: "#242322",
   },
 
