@@ -11,13 +11,8 @@ export const userSlice = createSlice({
       state.users[action.payload.userId] = action.payload.response;
       state.isLoading = false;
     },
-    userFetchedFail: (state, action) => {
-      state.hasErrors = true;
-      state.isLoading = false;
-      state.errorMessage = action.payload.message;
-    },
   },
 });
 
-export const { userFetchedSuccess, userFetchedFail } = userSlice.actions;
+export const { userFetchedSuccess } = userSlice.actions;
 export default userSlice.reducer;
