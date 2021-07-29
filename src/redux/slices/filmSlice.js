@@ -21,13 +21,8 @@ export const filmSlice = createSlice({
       state.rating = action.payload.rating;
       state.trailerLink = action.payload.trailerLink;
     },
-    filmFetchedFail: (state, action) => {
-      state.isLoading = false;
-      state.hasErrors = true;
-      state.errorMessage = action.payload.message;
-    },
   },
 });
 
-export const { filmFetchedSuccess, filmFetchedFail } = filmSlice.actions;
+export const { filmFetchedSuccess } = filmSlice.actions;
 export default filmSlice.reducer;

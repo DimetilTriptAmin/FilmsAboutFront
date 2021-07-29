@@ -1,6 +1,11 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 import { axiosDefault } from "../../Axios";
-import { filmFetchedSuccess, filmFetchedFail } from "../slices/filmSlice";
+import { filmFetchedSuccess } from "../slices/filmSlice";
+import {
+  enqueueSnackbarError,
+  enqueueSnackbarInfo,
+  enqueueSnackbarSuccess,
+} from "../slices/notificationSlice";
 
 function* sagaFilmRequest(data) {
   try {
@@ -13,12 +18,14 @@ function* sagaFilmRequest(data) {
     );
     if (!errors.hasErrors && response.status === 200)
       yield put(filmFetchedSuccess(response.data));
-    else
+    else {
       yield put(
-        filmFetchedFail({
-          message: "Film request failed",
+        enqueueSnackbarError({
+          message: "Request failed: " + errors.message,
+          key: new Date().getTime() + Math.random(),
         }),
       );
+    }
   } catch (err) {
     console.log(err, "ERROR in Saga");
   }

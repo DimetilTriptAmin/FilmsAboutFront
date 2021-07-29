@@ -6,6 +6,7 @@ import filmReducer from "./slices/filmSlice";
 import commentsReducer from "./slices/commentsSlice";
 import ratingReducer from "./slices/ratingSlice";
 import userReducer from "./slices/userSlice";
+import notificationReducer from "./slices/notificationSlice";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -15,6 +16,7 @@ export default configureStore({
     comments: commentsReducer,
     rating: ratingReducer,
     user: userReducer,
+    notification: notificationReducer,
   },
   middleware: [sagaMiddleware],
 });
