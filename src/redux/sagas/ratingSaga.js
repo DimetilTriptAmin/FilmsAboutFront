@@ -1,9 +1,6 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 import { axiosDefault } from "../../Axios";
-import {
-  ratingByPairIdFetchedSuccess,
-  ratingByPairIdFetchedFail,
-} from "../slices/ratingSlice";
+import { ratingByPairIdFetchedSuccess } from "../slices/ratingSlice";
 
 function* ratingRequest(data) {
   try {
@@ -21,12 +18,7 @@ function* ratingRequest(data) {
           userId: data.payload.userId,
         }),
       );
-    } else
-      yield put(
-        ratingByPairIdFetchedFail({
-          message: "Rating request failed",
-        }),
-      );
+    } else yield put();
   } catch (err) {
     console.log(err, "ERROR in Saga");
   }

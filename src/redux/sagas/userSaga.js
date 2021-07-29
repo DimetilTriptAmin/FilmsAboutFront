@@ -1,6 +1,6 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 import { axiosDefault } from "../../Axios";
-import { userFetchedSuccess, userFetchedFail } from "../slices/userSlice";
+import { userFetchedSuccess } from "../slices/userSlice";
 
 function* userByIdRequest(data) {
   try {
@@ -15,12 +15,7 @@ function* userByIdRequest(data) {
       yield put(
         userFetchedSuccess({ response: response.data, userId: data.payload }),
       );
-    } else
-      yield put(
-        userFetchedFail({
-          message: "User request failed",
-        }),
-      );
+    } else yield put();
   } catch (err) {
     console.log(err, "ERROR in Saga");
   }

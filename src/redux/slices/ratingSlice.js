@@ -13,14 +13,8 @@ export const ratingSlice = createSlice({
       state.rating[action.payload.userId] = action.payload.response;
       state.isLoading = false;
     },
-    ratingByPairIdFetchedFail: (state, action) => {
-      state.hasErrors = true;
-      state.isLoading = false;
-      state.errorMessage = action.payload.message;
-    },
   },
 });
 
-export const { ratingByPairIdFetchedSuccess, ratingByPairIdFetchedFail } =
-  ratingSlice.actions;
+export const { ratingByPairIdFetchedSuccess } = ratingSlice.actions;
 export default ratingSlice.reducer;
