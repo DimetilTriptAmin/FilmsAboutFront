@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import UserSettings from '../Views/UserSettings';
 import axios from 'axios';
 
@@ -32,10 +32,6 @@ const UserSettingsContainer = () => {
                 onSuccess();
             })
             .catch(err => console.log(err));
-    }
-
-    const getImage = () => {
-        userAPI().fetchById(10);
     }
 
     const resetForm = () => {

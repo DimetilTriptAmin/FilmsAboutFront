@@ -1,5 +1,5 @@
 import React from 'react';
-import { FilmCardContainer } from '../../Containers/FilmCardContainer';
+import FilmCardContainerWithRouter  from '../../Containers/FilmCardContainer';
 import { useStyles } from './styles';
 
 const FilmCardList = (props) => {
@@ -14,7 +14,7 @@ const FilmCardList = (props) => {
                 <div className={classes.cards}>
                     {props.films.map((film) => (
                         <div className={classes.item}>
-                            <FilmCardContainer key={film.id} film={film} />
+                            <FilmCardContainerWithRouter key={film.id} film={film} />
                         </div>
                     ))}
                 </div>

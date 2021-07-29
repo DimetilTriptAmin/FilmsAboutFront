@@ -26,14 +26,13 @@ const FilmCard = (props) => {
             <CardContent className={classes.cardContent}>
                 <Typography
                     variant="body2"
-                    color="white"
                     component="div"
                 >
                     {props.description}
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button className={classes.button} size="big">Learn More</Button>
+                <Button className={classes.button} onClick={props.handleClick}>Learn More</Button>
             </CardActions>
         </Card>
     );
