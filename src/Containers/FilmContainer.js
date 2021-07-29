@@ -11,11 +11,13 @@ const FilmContainer = () => {
   const filmData = useSelector(filmDataSelector);
   const comments = useSelector(filmCommentsSelector);
 
+  const { id } = useParams();
+
   useEffect(() => {
     dispatch(filmRequest(id));
     dispatch(commentsRequest(id));
   }, [id, dispatch]);
-  
+
   return <Film filmData={filmData} comments={comments} />;
 };
 
