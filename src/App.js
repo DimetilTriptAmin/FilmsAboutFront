@@ -1,27 +1,24 @@
-import React from "react";
-import Slide from "@material-ui/core/Slide";
-import FilmContainer from "./Containers/FilmContainer";
-import { FilmCardListContainer } from "./Containers/FilmCardListContainer";
-import HeaderContainer from "./Containers/HeaderContainer";
-import UserSettingsContainer from "./Containers/UserSettingsContainer";
+
+import React from 'react';
+import HeaderContainer from './Containers/HeaderContainer';
+import AppRouter from './AppRouter';
+import { Container } from '@material-ui/core';
 import NotificationContainer from "./Containers/NotificationContainer";
 
 const App = () => {
-  return (
-    <div>
-      <HeaderContainer />
-      <NotificationContainer
+    return (
+       <NotificationContainer
         anchorOrigin={{
           vertical: "bottom",
           horizontal: "left",
         }}
         TransitionComponent={Slide}
       />
-      {/* <FilmCardListContainer /> */}
-      <FilmContainer />
-      <UserSettingsContainer />
-    </div>
-  );
+        <Container maxWidth='lg' style={{ backgroundColor: '#242322'}}>
+            <HeaderContainer />
+            <AppRouter />
+        </Container>
+    );
 };
 
 App.propTypes = {};

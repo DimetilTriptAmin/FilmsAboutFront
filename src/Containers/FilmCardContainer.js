@@ -1,6 +1,8 @@
 import { FilmCard } from "../Views/FilmCard";
+import FilmContainer from "./FilmContainer";
+import { withRouter } from "react-router";
 
-const FilmCardContainer = (props) => {
+export const FilmCardContainer = (props) => {
   const { id, title, description, poster, comments, trailerLink, rating } =
     props.film;
 
@@ -26,4 +28,4 @@ const FilmCardContainer = (props) => {
   );
 };
 
-export { FilmCardContainer };
+export default withRouter(FilmCardContainer);

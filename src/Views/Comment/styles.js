@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
   commentContainer: {
     padding: "0px",
     backgroundColor: alpha(theme.palette.common.white, 0.1),
-    margin: "40px 0",
+    margin: "40px 0 0",
   },
 
   header: {
@@ -37,8 +37,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   commentText: {
-    padding: "30px",
-    margin: "10px",
+    padding: "40px",
     fontSize: "18px",
   },
 

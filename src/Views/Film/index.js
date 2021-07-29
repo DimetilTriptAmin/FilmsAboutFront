@@ -6,7 +6,9 @@ import StarIcon from "@material-ui/icons/Star";
 import { Oval } from "@agney/react-loading";
 
 import useStyles from "./styles";
+
 import { ErrorOutline } from "@material-ui/icons";
+
 import CommentContainer from "../../Containers/CommentContainer";
 
 const Film = ({ filmData, comments }) => {
