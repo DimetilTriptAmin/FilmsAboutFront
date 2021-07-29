@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ratinfByPairIdRequest, userById } from "../redux/actions";
-import Comment from "../Views/Comment";
+import PropTypes from "prop-types";
+
+import Comment from "../views/Comment";
 
 const CommentContainer = ({ userId, filmId, publishDate, text }) => {
   const dispatch = useDispatch();
@@ -27,6 +29,13 @@ const CommentContainer = ({ userId, filmId, publishDate, text }) => {
       user={user}
     />
   );
+};
+
+CommentContainer.propTypes = {
+  userId: PropTypes.number.isRequired,
+  filmId: PropTypes.number.isRequired,
+  publishDate: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
 };
 
 export default CommentContainer;

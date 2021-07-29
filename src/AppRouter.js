@@ -1,31 +1,30 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import { FilmCardListContainer } from './Containers/FilmCardListContainer';
-import FilmContainer from './Containers/FilmContainer';
-import UserSettingsContainer from './Containers/UserSettingsContainer';
-import NotFound from './Views/NotFound';
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+import FilmCardListContainer from "./containers/FilmCardListContainer";
+import FilmContainer from "./containers/FilmContainer";
+import UserSettingsContainer from "./containers/UserSettingsContainer";
+import NotFound from "./views/NotFound";
 
 const AppRouter = () => {
-    return (
-        <Router>
-            <Switch>
-                <Route exact path='/'>
-                    <FilmCardListContainer />
-                </Route>
-                <Route path="/film:id">
-                    <FilmContainer />
-                </Route>
-                <Route path="/profile">
-                    <UserSettingsContainer />
-                </Route>
-                <Router path='*'>
-                    <NotFound />
-                </Router>
-            </Switch>
+  return (
+    <Router>
+      <Switch>
+        <Route exact path='/'>
+          <FilmCardListContainer />
+        </Route>
+        <Route path='/film:id'>
+          <FilmContainer />
+        </Route>
+        <Route path='/profile'>
+          <UserSettingsContainer />
+        </Route>
+        <Router path='*'>
+          <NotFound />
         </Router>
-    );
+      </Switch>
+    </Router>
+  );
 };
 
 AppRouter.propTypes = {};

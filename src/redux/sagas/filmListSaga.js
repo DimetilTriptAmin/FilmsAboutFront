@@ -1,6 +1,9 @@
 import { call, put, takeEvery } from "redux-saga/effects";
-import { axiosDefault } from "../../Axios";
-import { filmListFetchedSuccess, filmListFetchedFail } from "../slices/filmListSlice";
+import { axiosDefault } from "../../axios";
+import {
+  filmListFetchedSuccess,
+  filmListFetchedFail,
+} from "../slices/filmListSlice";
 
 function* sagaFilmListRequest(data) {
   try {
@@ -11,11 +14,9 @@ function* sagaFilmListRequest(data) {
       "get",
       errors,
     );
-    if (!errors.hasErrors && response.status === 200){
+    if (!errors.hasErrors && response.status === 200) {
       yield put(filmListFetchedSuccess(response.data));
-    }
-      
-    else
+    } else
       yield put(
         filmListFetchedFail({
           message: "Film list request failed",

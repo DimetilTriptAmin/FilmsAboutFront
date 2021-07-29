@@ -1,9 +1,10 @@
 import { useEffect } from "react";
-import Film from "../Views/Film";
 import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+
 import { filmRequest, commentsRequest } from "../redux/actions";
 import { filmDataSelector, filmCommentsSelector } from "../redux/selectors";
-import { useParams } from "react-router-dom";
+import Film from "../views/Film";
 
 const FilmContainer = () => {
   const dispatch = useDispatch();

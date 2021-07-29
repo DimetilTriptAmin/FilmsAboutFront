@@ -8,11 +8,11 @@ const useStyles = makeStyles({
   },
 
   headerContainer: {
-    margin: "auto",
+    height: "100vh",
   },
 
   header: {
-    width: "70%",
+    margin: "auto",
   },
 
   text: {

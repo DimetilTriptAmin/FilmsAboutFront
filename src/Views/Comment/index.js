@@ -1,12 +1,13 @@
 import { Container, Typography } from "@material-ui/core";
 import { Rating } from "@material-ui/lab";
 import ReactRoundedImage from "react-rounded-image";
-import CommentMenuContainer from "../../Containers/CommentMenuContainer";
 import useStyles from "./styles";
+import PropTypes from "prop-types";
+
+import CommentMenuContainer from "../../containers/CommentMenuContainer";
 
 const Comment = ({ user, userRate, publishDate, text }) => {
   const classes = useStyles();
-  console.log(user);
   return (
     <Container className={classes.commentContainer}>
       <div>
@@ -50,6 +51,13 @@ const Comment = ({ user, userRate, publishDate, text }) => {
       </div>
     </Container>
   );
+};
+
+Comment.propTypes = {
+  user: PropTypes.object.isRequired,
+  userRate: PropTypes.number.isRequired,
+  publishDate: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
 };
 
 export default Comment;

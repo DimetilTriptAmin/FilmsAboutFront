@@ -7,8 +7,8 @@ import SearchIcon from "@material-ui/icons/Search";
 import PropTypes from "prop-types";
 
 import useStyles from "./styles";
-import AccountMenuContainer from "../../Containers/AccountMenuContainer";
-import AuthorizationMenuContainer from "../../Containers/AuthorizationMenuContainer";
+import AccountMenuContainer from "../../containers/AccountMenuContainer";
+import AuthorizationMenuContainer from "../../containers/AuthorizationMenuContainer";
 
 const Header = ({ isAuthorized }) => {
   const classes = useStyles();
@@ -43,7 +43,7 @@ const Header = ({ isAuthorized }) => {
 };
 
 Header.propTypes = {
-  isAuthorized: PropTypes.bool,
+  isAuthorized: PropTypes.bool.isRequired,
 };
 
 export default Header;
