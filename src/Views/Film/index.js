@@ -4,12 +4,11 @@ import { Container, Typography } from "@material-ui/core";
 import Rating from "@material-ui/lab/Rating";
 import StarIcon from "@material-ui/icons/Star";
 import { Oval } from "@agney/react-loading";
-
-import useStyles from "./styles";
-
+import PropTypes from "prop-types";
 import { ErrorOutline } from "@material-ui/icons";
 
-import CommentContainer from "../../Containers/CommentContainer";
+import useStyles from "./styles";
+import CommentContainer from "../../containers/CommentContainer";
 
 const Film = ({ filmData, comments }) => {
   const classes = useStyles();
@@ -96,15 +95,31 @@ const Film = ({ filmData, comments }) => {
               </Container>
               <div className={classes.divider} />
               <Container maxWidth='lg'>
-                {comments.comments.map((comment, key) => (
-                  <CommentContainer
-                    text={comment.text}
-                    publishDate={comment.publishDate}
-                    userId={comment.userId}
-                    filmId={comment.filmId}
-                    key={key}
-                  />
-                ))}
+                {!comments.isLoading ? (
+                  comments.Loaded ? (
+                    comments.comments.map((comment, key) => (
+                      <CommentContainer
+                        text={comment.text}
+                        publishDate={comment.publishDate}
+                        userId={comment.userId}
+                        filmId={comment.filmId}
+                        key={key}
+                      />
+                    ))
+                  ) : (
+                    <div className={`${classes.metaComponent} ${classes.flex}`}>
+                      <ErrorOutline
+                        style={{ fontSize: 100, color: "#fff", margin: "auto" }}
+                      />
+                    </div>
+                  )
+                ) : (
+                  <Container
+                    className={`${classes.metaComponent} ${classes.flex}`}
+                  >
+                    <Oval width='100' color='#fff' />
+                  </Container>
+                )}
               </Container>
             </Container>
           )}
@@ -116,6 +131,11 @@ const Film = ({ filmData, comments }) => {
       )}
     </Container>
   );
+};
+
+Film.propTypes = {
+  filmData: PropTypes.object.isRequired,
+  comments: PropTypes.object.isRequired,
 };
 
 export default Film;

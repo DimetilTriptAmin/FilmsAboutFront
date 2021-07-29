@@ -1,6 +1,11 @@
 import { call, put, takeEvery } from "redux-saga/effects";
+
 import { axiosDefault } from "../../Axios";
-import { commentsFetchedSuccess } from "../slices/commentsSlice";
+import {
+  commentsFetchedSuccess,
+  commentsFetchedFail,
+} from "../slices/commentsSlice";
+import { enqueueSnackbarError } from "../slices/notificationSlice";
 
 function* sagaCommentsRequest(data) {
   try {
@@ -13,7 +18,15 @@ function* sagaCommentsRequest(data) {
     );
     if (!errors.hasErrors && response.status === 200)
       yield put(commentsFetchedSuccess(response.data));
-    else yield put();
+    else {
+      yield put(
+        enqueueSnackbarError({
+          message: "Comments request failed: " + errors.message,
+          key: new Date().getTime() + Math.random(),
+        }),
+      );
+      yield put(commentsFetchedFail());
+    }
   } catch (err) {
     console.log(err, "ERROR in Saga");
   }

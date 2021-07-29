@@ -1,7 +1,8 @@
 import { useSelector } from "react-redux";
-import { notificationSelector } from "../redux/selectors";
 import { useEffect } from "react";
 import { useSnackbar } from "notistack";
+
+import { notificationSelector } from "../redux/selectors";
 import { isObjectEmpty } from "../helper";
 
 const NotificationContainer = () => {

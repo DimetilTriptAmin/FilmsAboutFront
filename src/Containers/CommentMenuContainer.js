@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import CommentMenu from "../Views/CommentMenu";
 
-const AccountMenuContainer = () => {
+const CommentMenuContainer = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const isMenuOpen = Boolean(anchorEl);
 
@@ -25,4 +25,4 @@ const AccountMenuContainer = () => {
   );
 };
 
-export default AccountMenuContainer;
+export default CommentMenuContainer;

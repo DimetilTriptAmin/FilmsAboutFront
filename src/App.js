@@ -1,9 +1,10 @@
 import React from "react";
+import { Container } from "@material-ui/core";
+import Slide from "@material-ui/core/Slide";
+
+import NotificationContainer from "./Containers/NotificationContainer";
 import HeaderContainer from "./Containers/HeaderContainer";
 import AppRouter from "./AppRouter";
-import { Container } from "@material-ui/core";
-import NotificationContainer from "./Containers/NotificationContainer";
-import Slide from "@material-ui/core/Slide";
 
 const App = () => {
   return (

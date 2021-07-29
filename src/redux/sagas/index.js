@@ -1,5 +1,6 @@
-import { filmWatcher } from "./filmSaga";
 import { all } from "redux-saga/effects";
+
+import { filmWatcher } from "./filmSaga";
 import { commentsWatcher } from "./commentsSaga";
 import { ratingWatcher } from "./ratingSaga";
 import { userWatcher } from "./userSaga";

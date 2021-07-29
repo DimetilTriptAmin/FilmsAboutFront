@@ -41,10 +41,10 @@ const CommentMenu = ({
 };
 
 CommentMenu.propTypes = {
-  isMenuOpen: PropTypes.bool,
+  isMenuOpen: PropTypes.bool.isRequired,
   anchorEl: PropTypes.any,
-  handleMenuClose: PropTypes.func,
-  handleMenuOpen: PropTypes.func,
+  handleMenuClose: PropTypes.func.isRequired,
+  handleMenuOpen: PropTypes.func.isRequired,
 };
 
 export default CommentMenu;

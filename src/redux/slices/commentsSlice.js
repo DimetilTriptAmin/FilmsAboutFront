@@ -4,15 +4,21 @@ export const commentsSlice = createSlice({
   name: "comments",
   initialState: {
     comments: [],
-    hasErrors: false,
     isLoading: true,
+    Loaded: false,
   },
   reducers: {
     commentsFetchedSuccess: (state, action) => {
       state.comments = action.payload;
+      state.Loaded = true;
+      state.isLoading = false;
+    },
+    commentsFetchedFail: (state, action) => {
+      state.isLoading = false;
     },
   },
 });
 
-export const { commentsFetchedSuccess } = commentsSlice.actions;
+export const { commentsFetchedSuccess, commentsFetchedFail } =
+  commentsSlice.actions;
 export default commentsSlice.reducer;
