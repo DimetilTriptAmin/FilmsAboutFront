@@ -1,17 +1,14 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import HeaderContainer from "./Containers/HeaderContainer";
-import { Provider } from "react-redux";
-import store from "./redux/store";
-import FilmContainer from "./Containers/FilmContainer";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import App from './App';
+import store from './redux/store';
 
 ReactDOM.render(
-  <Provider store={store}>
-    <React.StrictMode>
-      <HeaderContainer />
-      {/* <FilmCardListContainer /> */}
-      <FilmContainer id={3} />
-    </React.StrictMode>
-  </Provider>,
-  document.getElementById("root"),
+    <Provider store={store}>
+        <React.StrictMode>
+            <App />
+        </React.StrictMode>
+    </Provider>,
+    document.getElementById('root')
 );
