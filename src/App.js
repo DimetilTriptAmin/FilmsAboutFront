@@ -3,7 +3,6 @@ import { Container } from "@material-ui/core";
 import Slide from "@material-ui/core/Slide";
 
 import NotificationContainer from "./containers/NotificationContainer";
-import HeaderContainer from "./containers/HeaderContainer";
 import AppRouter from "./AppRouter";
 
 const App = () => {
@@ -16,7 +15,6 @@ const App = () => {
         }}
         TransitionComponent={Slide}
       />
-      <HeaderContainer />
       <AppRouter />
     </Container>
   );

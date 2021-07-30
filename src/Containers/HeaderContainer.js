@@ -1,9 +1,15 @@
 import React from "react";
+import { withRouter } from "react-router";
 
 import Header from "../views/Header";
 
-const HeaderContainer = () => {
-  return <Header isAuthorized={true} />;
+const HeaderContainer = ({ history }) => {
+  const onLogoClick = () => {
+    history.push("/");
+  };
+
+  return <Header isAuthorized={false} onLogoClick={onLogoClick} />;
 };
 
-export default HeaderContainer;
+const HeaderContainerWithRouter = withRouter(HeaderContainer);
+export default HeaderContainerWithRouter;

@@ -11,9 +11,10 @@ const AuthorizationMenu = () => {
         color='primary'
         variant='text'
         aria-label='text primary button group'
+        size='large'
       >
-        <Button className={classes.menuItem}>Login</Button>
-        <Button className={classes.menuItem}>Register</Button>
+        <Button className={`${classes.menuItem} `}>Login</Button>
+        <Button className={`${classes.menuItem} `}>Register</Button>
       </ButtonGroup>
     </div>
   );

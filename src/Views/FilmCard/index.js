@@ -10,7 +10,6 @@ import { useStyles } from "./styles";
 
 const FilmCard = (props) => {
   const classes = useStyles();
-  console.log(props.poster);
   return (
     <div>
       <Card className={classes.root}>

@@ -5,10 +5,12 @@ import FilmCardListContainer from "./containers/FilmCardListContainer";
 import FilmContainer from "./containers/FilmContainer";
 import UserSettingsContainer from "./containers/UserSettingsContainer";
 import NotFound from "./views/NotFound";
+import HeaderContainer from "./containers/HeaderContainer";
 
 const AppRouter = () => {
   return (
     <Router>
+      <HeaderContainer />
       <Switch>
         <Route exact path='/'>
           <FilmCardListContainer />
