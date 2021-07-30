@@ -5,19 +5,22 @@ import Typography from "@material-ui/core/Typography";
 import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
 import PropTypes from "prop-types";
+import Button from "@material-ui/core/Button";
 
 import useStyles from "./styles";
 import AccountMenuContainer from "../../containers/AccountMenuContainer";
 import AuthorizationMenuContainer from "../../containers/AuthorizationMenuContainer";
 
-const Header = ({ isAuthorized }) => {
+const Header = ({ isAuthorized, onLogoClick }) => {
   const classes = useStyles();
   return (
     <AppBar position='fixed' className={classes.header}>
       <Toolbar>
-        <Typography className={classes.title} variant='h6' noWrap>
-          Films About
-        </Typography>
+        <Button onClick={onLogoClick}>
+          <Typography className={classes.title} variant='h6' noWrap>
+            Films About
+          </Typography>
+        </Button>
         <div className={classes.search}>
           <div className={classes.searchIcon}>
             <SearchIcon />

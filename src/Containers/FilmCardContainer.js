@@ -2,7 +2,7 @@ import { FilmCard } from "../views/FilmCard";
 import { withRouter } from "react-router";
 
 const FilmCardContainer = (props) => {
-  const { id, title, description, trailerLink, rating } = props.film;
+  const { id, title, description, trailerLink, rating, poster } = props.film;
 
   const { history } = props;
 
@@ -17,6 +17,7 @@ const FilmCardContainer = (props) => {
       title={title}
       description={description}
       rating={rating}
+      poster={"data:image/jpeg;base64," + poster}
       trailerLink={trailerLink}
       handleClick={handleClick}
     />

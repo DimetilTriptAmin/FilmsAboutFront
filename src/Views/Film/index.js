@@ -28,7 +28,7 @@ const Film = ({ filmData, comments }) => {
                 <Container className={classes.poster}>
                   <img
                     className={classes.posterImg}
-                    src={filmData.poster}
+                    src={`data:image/jpeg;base64,${filmData.poster}`}
                     alt='poster'
                   />
 

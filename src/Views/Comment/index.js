@@ -14,11 +14,11 @@ const Comment = ({ user, userRate, publishDate, text }) => {
         <div className={`${classes.flex} ${classes.header}`}>
           <div className={`${classes.flex} ${classes.userContainer}`}>
             <ReactRoundedImage
-              image={user.avatar}
-              roundedColor='#321124'
+              image={`data:image/jpeg;base64,${user.avatar}`}
+              roundedColor='#242322'
               imageWidth='70'
               imageHeight='70'
-              roundedSize='13'
+              roundedSize='8'
             />
             <div>
               <div className={`${classes.flex}`}>

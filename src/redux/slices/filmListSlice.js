@@ -4,17 +4,21 @@ export const filmListSlice = createSlice({
   name: "filmList",
   initialState: {
     films: [],
+    isLoading: true,
+    Loaded: false,
   },
   reducers: {
     filmListFetchedSuccess: (state, action) => {
       state.films = action.payload;
+      state.isLoading = false;
+      state.Loaded = true;
     },
     filmListFetchedFail: (state, action) => {
-      state.hasErrors = true;
-      state.errorMessage = action.payload.message;
+      state.isLoading = false;
     },
   },
 });
 
-export const { filmListFetchedSuccess, filmListFetchedFail } = filmListSlice.actions;
+export const { filmListFetchedSuccess, filmListFetchedFail } =
+  filmListSlice.actions;
 export default filmListSlice.reducer;
