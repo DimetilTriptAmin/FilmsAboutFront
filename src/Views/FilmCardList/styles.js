@@ -13,6 +13,9 @@ const useStyles = makeStyles(() => ({
     fontSize: "32px",
     fontWeight: "bold",
     textAlign: "center",
+    '& span': {
+      fontFamily: 'Rockout',
+    },
   },
   cards: {
     marginTop: "40px",

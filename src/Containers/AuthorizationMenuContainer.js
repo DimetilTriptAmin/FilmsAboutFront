@@ -1,9 +1,18 @@
 import React from "react";
-
 import AuthorizationMenu from "../views/AuthorizationMenu/index";
+import { withRouter } from "react-router";
 
-const AuthorizationMenuContainer = () => {
-  return <AuthorizationMenu />;
+const AuthorizationMenuContainer = ({history}) => {
+
+  const onLoginClick = () => {
+    history.push('/login');
+  }
+  const onRegistrationClick = () => {
+    history.push('/registration');
+  }
+
+  return <AuthorizationMenu onLoginClick={onLoginClick} onRegistrationClick={onRegistrationClick}/>;
 };
 
-export default AuthorizationMenuContainer;
+const AuthorizationMenuContainerWithRouter = withRouter(AuthorizationMenuContainer);
+export default AuthorizationMenuContainerWithRouter;

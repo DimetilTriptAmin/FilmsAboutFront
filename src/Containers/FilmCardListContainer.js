@@ -8,7 +8,6 @@ import { filmListSelector } from "../redux/selectors";
 const FilmCardListContainer = () => {
   const dispatch = useDispatch();
   const films = useSelector(filmListSelector);
-  console.log(films, "CONTAINER");
 
   useEffect(() => {
     dispatch(filmListRequest());
