@@ -28,6 +28,7 @@ export const filmSlice = createSlice({
     },
     filmResetData: (state, action) => {
       state.isLoading = true;
+      state.Loaded = false;
     },
   },
 });
