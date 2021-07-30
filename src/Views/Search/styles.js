@@ -1,27 +1,23 @@
 import { alpha, makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-  header: {
-    backgroundColor: "#242322",
-  },
   searchMenu: {
     marginTop: "10px",
     backgroundColor: "#242322",
     boxShadow: "0 0 100px #000",
   },
-  grow: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    display: "none",
-    [theme.breakpoints.up("sm")]: {
-      display: "block",
+  link: {
+    textDecoration: "none",
+
+    "&:focus, &:hover, &:visited, &:link, &:active": {
+      textDecoration: "none",
     },
-    fontFamily: 'Rockout',
+  },
+  menuItem: {
     color: "#fff",
+    "&:hover": {
+      backgroundColor: alpha(theme.palette.common.white, 0.2),
+    },
   },
   search: {
     position: "relative",
@@ -57,18 +53,6 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     [theme.breakpoints.up("md")]: {
       width: "20ch",
-    },
-  },
-  sectionDesktop: {
-    display: "none",
-    [theme.breakpoints.up("md")]: {
-      display: "flex",
-    },
-  },
-  sectionMobile: {
-    display: "flex",
-    [theme.breakpoints.up("md")]: {
-      display: "none",
     },
   },
 }));

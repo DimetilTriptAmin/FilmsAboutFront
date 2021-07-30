@@ -12,7 +12,7 @@ const FilmCardListContainer = () => {
   useEffect(() => {
     dispatch(filmListRequest());
     dispatch(filmResetData());
-  });
+  }, [dispatch]);
 
   return (
     <div>
