@@ -8,7 +8,20 @@ const HeaderContainer = ({ history }) => {
     history.push("/");
   };
 
-  return <Header isAuthorized={false} onLogoClick={onLogoClick} />;
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  return (
+    <Header
+      isAuthorized={false}
+      onLogoClick={onLogoClick}
+      anchorEl={anchorEl}
+      handleClick={handleClick}
+    />
+  );
 };
 
 const HeaderContainerWithRouter = withRouter(HeaderContainer);
