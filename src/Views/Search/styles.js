@@ -14,6 +14,17 @@ const useStyles = makeStyles((theme) => ({
       color: "#fff",
     },
   },
+  flex: {
+    display: "flex",
+  },
+  loader: {
+    height: "200px",
+    width: "200px",
+    margin: "auto",
+    justifyContent: "center",
+    backgroundColor: "#242322",
+    boxShadow: "0 0 100px #000",
+  },
   menuItem: {
     color: "#fff",
     "&:hover": {

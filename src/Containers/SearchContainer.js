@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -12,20 +12,21 @@ const SearchContainer = ({ history }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [searchString, setSearchString] = useState("");
 
+  const isLoading = useSelector(filmListSelector).isLoading;
   const filmList = useSelector(filmListSelector).films.filter((film) =>
     film.title.match(new RegExp(`\\b${searchString}`, "i")),
   );
-
-  useEffect(() => {
-    if (!filmList.Loaded) dispatch(filmListRequest());
-  }, [dispatch, filmList.Loaded]);
 
   const handleChange = (event) => {
     setSearchString(event.target.value);
     setAnchorEl(event.currentTarget);
   };
 
-  const onClick = () => {
+  const onSearchClick = () => {
+    if (!filmList.Loaded) dispatch(filmListRequest());
+  };
+
+  const onMenuItemClick = () => {
     setSearchString("");
   };
 
@@ -35,7 +36,9 @@ const SearchContainer = ({ history }) => {
       handleChange={handleChange}
       films={filmList}
       searchString={searchString}
-      onClick={onClick}
+      onMenuItemClick={onMenuItemClick}
+      onSearchClick={onSearchClick}
+      isLoading={isLoading}
     />
   );
 };
