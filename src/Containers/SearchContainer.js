@@ -13,7 +13,7 @@ const SearchContainer = ({ history }) => {
   const [searchString, setSearchString] = useState("");
 
   const filmList = useSelector(filmListSelector).films.filter((film) =>
-    film.title.match(new RegExp(`^${searchString}`, "i")),
+    film.title.match(new RegExp(`\\b${searchString}`, "i")),
   );
 
   useEffect(() => {
