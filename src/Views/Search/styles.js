@@ -8,9 +8,10 @@ const useStyles = makeStyles((theme) => ({
   },
   link: {
     textDecoration: "none",
-
+    color: "#fff",
     "&:focus, &:hover, &:visited, &:link, &:active": {
       textDecoration: "none",
+      color: "#fff",
     },
   },
   menuItem: {

@@ -7,7 +7,13 @@ import useStyles from "./styles";
 import { FilmShortcut } from "../FilmShortcut";
 import { Link } from "react-router-dom";
 
-const Search = ({ anchorEl, handleChange, films = [], searchString }) => {
+const Search = ({
+  anchorEl,
+  handleChange,
+  onClick,
+  films = [],
+  searchString,
+}) => {
   const classes = useStyles();
   return (
     <div className={classes.search}>
@@ -28,7 +34,11 @@ const Search = ({ anchorEl, handleChange, films = [], searchString }) => {
         <Paper className={classes.searchMenu}>
           <MenuList anchororigin={{ vertical: "bottom", horizontal: "left" }}>
             {films.map((film, index) => (
-              <MenuItem className={classes.menuItem} key={index}>
+              <MenuItem
+                className={classes.menuItem}
+                key={index}
+                onClick={onClick}
+              >
                 <Link to={`film${film.id}`} className={classes.link}>
                   <FilmShortcut
                     poster={film.poster}
