@@ -80,4 +80,6 @@ const Registration = ({ handleFormSubmit }) => {
     );
 };
 
+Registration.propTypes = {handleFormSubmit: PropTypes.func};
+
 export default Registration;

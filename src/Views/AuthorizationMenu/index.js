@@ -1,11 +1,9 @@
 import React from 'react';
-import { ButtonGroup, Button, AppBar, Tabs, Tab } from '@material-ui/core';
-import { useState } from 'react';
+import { ButtonGroup, Button } from '@material-ui/core';
 
 import useStyles from './styles';
 
 const AuthorizationMenu = ({ onLoginClick, onRegistrationClick }) => {
-    const [clicked, setClicked] = useState(false);
 
     const classes = useStyles();
 

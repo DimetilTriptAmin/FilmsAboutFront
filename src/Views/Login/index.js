@@ -10,10 +10,10 @@ const Login = ({ handleFormSubmit }) => {
     const classes = useStyles();
 
     const validationSchema = Yup.object({
-        username: Yup.string('Enter your username')
+        Username: Yup.string('Enter your username')
             .min(2, 'Username should be of minimum 2 characters length')
             .required('Username is required'),
-        password: Yup.string('Enter your password')
+        Password: Yup.string('Enter your password')
             .min(6, 'Password should be of minimum 6 characters length')
             .required('Password is required'),
     });
@@ -22,7 +22,7 @@ const Login = ({ handleFormSubmit }) => {
         <div className={classes.formContainer}>
             <Formik
                 className={classes.root}
-                initialValues={{ username: '', password: '' }}
+                initialValues={{ Username: '', Password: '' }}
                 validationSchema={validationSchema}
                 onSubmit={handleFormSubmit}
             >
@@ -31,7 +31,7 @@ const Login = ({ handleFormSubmit }) => {
                         <Field
                             component={FormikTextField}
                             className={`${classes.input} ${classes.field}`}
-                            name="username"
+                            name="Username"
                             label="Username"
                             InputProps={{
                                 className: classes.input,
@@ -41,7 +41,7 @@ const Login = ({ handleFormSubmit }) => {
                         <Field
                             component={FormikTextField}
                             className={`${classes.input} ${classes.field}`}
-                            name="password"
+                            name="Password"
                             label="Password"
                             type="password"
                             InputProps={{
@@ -62,6 +62,6 @@ const Login = ({ handleFormSubmit }) => {
     );
 };
 
-Login.propTypes = {};
+Login.propTypes = {handleFormSubmit: PropTypes.func};
 
 export default Login;
