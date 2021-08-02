@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("sm")]: {
       display: "block",
     },
+    fontFamily: 'Rockout',
     color: "#fff",
   },
   search: {

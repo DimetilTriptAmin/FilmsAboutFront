@@ -12,5 +12,6 @@ export const axiosDefault = (url, method, errors, data) => {
   }).catch((error) => {
     errors.hasErrors = true;
     errors.message = error.message;
+    console.log('axiosDefault: ' + error.message)
   });
 };

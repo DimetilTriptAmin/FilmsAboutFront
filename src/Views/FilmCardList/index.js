@@ -16,7 +16,7 @@ const FilmCardList = (props) => {
       ) : props.films.Loaded ? (
         <div>
           <div className={classes.title}>
-            Watch your favorite movies on Film About
+            Watch your favorite movies on <span>Films About</span>
           </div>
           <div className={classes.cards}>
             {props.films.films.map((film) => (

@@ -7,12 +7,16 @@ const useStyles = makeStyles(() => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    backgroundColor: '#242322',
   },
   title: {
     marginTop: "130px",
     fontSize: "32px",
     fontWeight: "bold",
     textAlign: "center",
+    '& span': {
+      fontFamily: 'Rockout',
+    },
   },
   cards: {
     marginTop: "40px",
