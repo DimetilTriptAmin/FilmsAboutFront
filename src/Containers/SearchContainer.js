@@ -19,7 +19,7 @@ const SearchContainer = ({ history }) => {
     setFilms(
       filmList.films.filter((film) =>
         film.title.match(new RegExp(searchString, "i")),
-      ),
+      ).sort((a, b) => b.rating - a.rating),
     );
   }, [dispatch, searchString]);
 

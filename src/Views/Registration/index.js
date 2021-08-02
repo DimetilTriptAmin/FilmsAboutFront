@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as Yup from 'yup';
-import { Button, TextField } from '@material-ui/core';
+import { Button, TextField, Link } from '@material-ui/core';
 import { Formik, Field, Form } from 'formik';
 
 import useStyles from './styles';
 
-const Login = ({ handleFormSubmit }) => {
+const Registration = ({ handleFormSubmit }) => {
     const classes = useStyles();
 
     const validationSchema = Yup.object({
@@ -72,6 +72,7 @@ const Login = ({ handleFormSubmit }) => {
                         <Button className={classes.submit} type="submit">
                             create account
                         </Button>
+                        <Link className={classes.link} href='/login'>I already have an account</Link>
                     </Form>
                 )}
             </Formik>
@@ -79,8 +80,4 @@ const Login = ({ handleFormSubmit }) => {
     );
 };
 
-Login.propTypes = {
-    onSubmit: PropTypes.func.isRequired,
-};
-
-export default Login;
+export default Registration;

@@ -12,6 +12,7 @@ const useStyles = makeStyles({
         color: '#fff', 
         margin: '0 auto',
         marginTop: '150px',
+        backgroundColor: '#242322',
     },
 
     form: {
@@ -65,6 +66,10 @@ const useStyles = makeStyles({
         background: 'linear-gradient(45deg, #00b712 30%, #20bf55 90%)',
         border: '0',
         fontSize: '16px',
+    },
+    link: {
+        textAlign: 'center',
+        color: 'grey',
     },
 });
 

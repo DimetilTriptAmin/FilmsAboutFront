@@ -1,9 +1,12 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    backgroundColor: '#242322',  
+  },
+
   content: {
     padding: "150px 0 40px",
-    backgroundColor: "#242322",
   },
 
   flex: {

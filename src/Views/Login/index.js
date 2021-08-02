@@ -1,8 +1,8 @@
-import React from 'react';
 import PropTypes from 'prop-types';
 import * as Yup from 'yup';
-import { Button, TextField } from '@material-ui/core';
+import { Button, Link } from '@material-ui/core';
 import { Formik, Field, Form } from 'formik';
+import { FormikTextField } from "formik-material-fields"; // ???
 
 import useStyles from './styles';
 
@@ -22,14 +22,14 @@ const Login = ({ handleFormSubmit }) => {
         <div className={classes.formContainer}>
             <Formik
                 className={classes.root}
-                initialValues={{ email: '', password: '' }}
+                initialValues={{ username: '', password: '' }}
                 validationSchema={validationSchema}
                 onSubmit={handleFormSubmit}
             >
-                {({ errors, touched, values }) => (
+                {({ errors, touched, values}) => (
                     <Form className={classes.form}>
                         <Field
-                            component={TextField}
+                            component={FormikTextField}
                             className={`${classes.input} ${classes.field}`}
                             name="username"
                             label="Username"
@@ -39,7 +39,7 @@ const Login = ({ handleFormSubmit }) => {
                         ></Field>
 
                         <Field
-                            component={TextField}
+                            component={FormikTextField}
                             className={`${classes.input} ${classes.field}`}
                             name="password"
                             label="Password"
@@ -52,6 +52,9 @@ const Login = ({ handleFormSubmit }) => {
                         <Button className={classes.submit} type="submit">
                             Log in
                         </Button>
+                        <Link className={classes.link} href="/registration">
+                            I don't have an account yet
+                        </Link>
                     </Form>
                 )}
             </Formik>
@@ -59,8 +62,6 @@ const Login = ({ handleFormSubmit }) => {
     );
 };
 
-Login.propTypes = {
-    onSubmit: PropTypes.func.isRequired,
-};
+Login.propTypes = {};
 
 export default Login;

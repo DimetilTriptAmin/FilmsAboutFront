@@ -6,8 +6,9 @@ import NotificationContainer from './containers/NotificationContainer';
 import AppRouter from './AppRouter';
 
 const App = () => {
+
     return (
-        <Container style={{ backgroundColor: '#242322' }}>
+        <div>
             <NotificationContainer
                 anchorOrigin={{
                     vertical: 'bottom',
@@ -16,7 +17,7 @@ const App = () => {
                 TransitionComponent={Slide}
             />
             <AppRouter />
-        </Container>
+        </div>
     );
 };
 

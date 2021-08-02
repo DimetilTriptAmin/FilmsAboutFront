@@ -1,6 +1,9 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
+    '&:MuiContainer-maxWidthLg': {
+        backgroundColor: '#000',
+    },
     formContainer: {
         display: 'flex',
         flexDirection: 'column',
@@ -12,6 +15,7 @@ const useStyles = makeStyles({
         color: '#fff', 
         margin: '0 auto',
         marginTop: '150px',
+        backgroundColor: '#242322',
     },
 
     form: {
@@ -65,6 +69,10 @@ const useStyles = makeStyles({
         background: 'linear-gradient(45deg, #00b712 30%, #20bf55 90%)',
         border: '0',
         fontSize: '20px',
+    },
+    link: {
+        textAlign: 'center',
+        color: 'grey',
     },
 });
 

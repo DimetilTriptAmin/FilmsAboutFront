@@ -13,7 +13,7 @@ import CommentContainer from "../../containers/CommentContainer";
 const Film = ({ filmData, comments }) => {
   const classes = useStyles();
   return (
-    <Container maxWidth='lg'>
+    <Container className={classes.root} maxWidth='lg'>
       {!filmData.isLoading ? (
         <div>
           {!filmData.Loaded ? (

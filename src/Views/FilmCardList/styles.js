@@ -7,6 +7,7 @@ const useStyles = makeStyles(() => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    backgroundColor: '#242322',
   },
   title: {
     marginTop: "130px",

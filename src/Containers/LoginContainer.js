@@ -3,7 +3,12 @@ import Login from '../views/Login';
 import PropTypes from 'prop-types';
 
 const LoginContainer = () => {
-    return <Login />;
+
+    const handleFormSubmit = (values) => {
+        console.log(values);
+    }
+
+    return <Login handleFormSubmit={handleFormSubmit}/>;
 };
 
 LoginContainer.propTypes = {};
