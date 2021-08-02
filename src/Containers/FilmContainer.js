@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { filmResetData } from "../redux/slices/filmSlice";
 
 import { filmRequest, commentsRequest } from "../redux/actions";
 import { filmDataSelector, filmCommentsSelector } from "../redux/selectors";
@@ -17,6 +18,10 @@ const FilmContainer = () => {
   useEffect(() => {
     dispatch(filmRequest(id));
     dispatch(commentsRequest(id));
+
+    return () => {
+      dispatch(filmResetData());
+    };
   }, [id, dispatch]);
 
   return <Film filmData={filmData} comments={comments} />;

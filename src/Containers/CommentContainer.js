@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ratinfByPairIdRequest, userById } from "../redux/actions";
 import PropTypes from "prop-types";
@@ -12,21 +12,17 @@ const CommentContainer = ({ userId, filmId, publishDate, text }) => {
   const fetchedUser = useSelector((state) => state.user.users[userId]);
   const isLoading = useSelector(() => fetchedUser && fetchedRate);
 
-  const [userRate, setUserRate] = useState(0);
-  const [user, setUser] = useState({ avatar: "", userName: "" });
-
   useEffect(() => {
     dispatch(ratinfByPairIdRequest({ userId: userId, filmId: filmId }));
     dispatch(userById(userId));
-    if (fetchedRate !== undefined) setUserRate(fetchedRate);
-    if (fetchedUser !== undefined) setUser(fetchedUser);
   }, [userId, filmId, dispatch, isLoading]);
+
   return (
     <Comment
       publishDate={publishDate}
       text={text}
-      userRate={userRate}
-      user={user}
+      userRate={fetchedRate ?? 0}
+      user={fetchedUser ?? { avatar: "", userName: "" }}
     />
   );
 };

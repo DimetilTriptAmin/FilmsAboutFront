@@ -13,7 +13,7 @@ const NotificationContainer = () => {
       enqueueSnackbar(notification.message, {
         ...notification.options,
       });
-  }, [notification]);
+  }, [notification, enqueueSnackbar]);
 
   return null;
 };
