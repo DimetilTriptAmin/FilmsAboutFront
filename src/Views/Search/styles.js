@@ -8,10 +8,22 @@ const useStyles = makeStyles((theme) => ({
   },
   link: {
     textDecoration: "none",
-
+    color: "#fff",
     "&:focus, &:hover, &:visited, &:link, &:active": {
       textDecoration: "none",
+      color: "#fff",
     },
+  },
+  flex: {
+    display: "flex",
+  },
+  loader: {
+    height: "200px",
+    width: "200px",
+    margin: "auto",
+    justifyContent: "center",
+    backgroundColor: "#242322",
+    boxShadow: "0 0 100px #000",
   },
   menuItem: {
     color: "#fff",

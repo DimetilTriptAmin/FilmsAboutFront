@@ -17,7 +17,7 @@ const FilmCardContainer = (props) => {
       title={title}
       description={description}
       rating={rating}
-      poster={"data:image/jpeg;base64," + poster}
+      poster={poster}
       trailerLink={trailerLink}
       handleClick={handleClick}
     />

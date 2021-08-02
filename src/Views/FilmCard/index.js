@@ -22,7 +22,10 @@ const FilmCard = (props) => {
             >{`Rating: ${props.rating}`}</Typography>
           }
         />
-        <CardMedia className={classes.media} image={props.poster} />
+        <CardMedia
+          className={classes.media}
+          image={`data:image/jpeg;base64,${props.poster}`}
+        />
         <CardContent className={classes.cardContent}>
           <Typography variant='body2' component='div'>
             {props.description}
