@@ -24,9 +24,7 @@ const AppRouter = () => {
         <Route path='/profile'>
           <UserSettingsContainer />
         </Route>
-        <Route path='/login'>
-          <LoginContainer />
-        </Route>
+        <Route path='/login'>{<LoginContainer />}</Route>
         <Route path='/registration'>
           <RegistrationContainer />
         </Route>

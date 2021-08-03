@@ -11,6 +11,7 @@ const AccountMenu = ({
   anchorEl,
   handleMenuClose,
   handleMenuOpen,
+  Username,
 }) => {
   const classes = useStyles();
   return (
@@ -23,7 +24,7 @@ const AccountMenu = ({
         onClick={handleMenuOpen}
       >
         <Typography className={classes.title} variant='h6' noWrap>
-          Nickname
+          {Username}
         </Typography>
         <AccountCircle />
       </IconButton>
@@ -49,6 +50,7 @@ AccountMenu.propTypes = {
   anchorEl: PropTypes.any,
   handleMenuClose: PropTypes.func.isRequired,
   handleMenuOpen: PropTypes.func.isRequired,
+  Username: PropTypes.string.isRequired,
 };
 
 export default AccountMenu;

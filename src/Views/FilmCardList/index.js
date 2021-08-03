@@ -1,7 +1,6 @@
 import React from "react";
 import FilmCardContainer from "../../containers/FilmCardContainer";
 import { useStyles } from "./styles";
-import { Container } from "@material-ui/core";
 import { Oval } from "@agney/react-loading";
 import { ErrorOutline } from "@material-ui/icons";
 
@@ -10,9 +9,9 @@ const FilmCardList = (props) => {
   return (
     <div className={classes.container}>
       {props.films.isLoading ? (
-        <Container className={`${classes.metaComponent} ${classes.flex}`}>
+        <div className={`${classes.metaComponent} ${classes.flex}`}>
           <Oval width='100' color='#fff' />
-        </Container>
+        </div>
       ) : props.films.Loaded ? (
         <div>
           <div className={classes.title}>
