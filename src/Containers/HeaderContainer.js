@@ -1,6 +1,8 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { withRouter } from "react-router";
 
+import { IsAuthorizedSelector } from "../redux/selectors";
 import Header from "../views/Header";
 
 const HeaderContainer = ({ history }) => {
@@ -9,6 +11,7 @@ const HeaderContainer = ({ history }) => {
   };
 
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const IsAuthorized = useSelector(IsAuthorizedSelector);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -16,7 +19,7 @@ const HeaderContainer = ({ history }) => {
 
   return (
     <Header
-      isAuthorized={false}
+      isAuthorized={IsAuthorized}
       onLogoClick={onLogoClick}
       anchorEl={anchorEl}
       handleClick={handleClick}

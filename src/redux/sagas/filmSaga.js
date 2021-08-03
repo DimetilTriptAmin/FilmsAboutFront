@@ -6,26 +6,22 @@ import { enqueueSnackbarError } from "../slices/notificationSlice";
 
 function* sagaFilmRequest(data) {
   try {
-    const errors = {};
     const response = yield call(
       axiosDefault,
       `https://localhost:44364/api/Film/${data.payload}`,
       "get",
-      errors,
     );
-    if (!errors.hasErrors && response.status === 200)
-      yield put(filmFetchedSuccess(response.data));
+    if (response.status === 200) yield put(filmFetchedSuccess(response.data));
     else {
-      yield put(
-        enqueueSnackbarError({
-          message: "Film data request failed: " + errors.message,
-          key: new Date().getTime() + Math.random(),
-        }),
-      );
-      yield put(filmFetchedFail());
     }
   } catch (err) {
-    console.log(err, "ERROR in Saga");
+    yield put(
+      enqueueSnackbarError({
+        message: "internal server error",
+        key: new Date().getTime() + Math.random(),
+      }),
+    );
+    yield put(filmFetchedFail());
   }
 }
 

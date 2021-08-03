@@ -7,15 +7,15 @@ const useStyles = makeStyles(() => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    backgroundColor: '#242322',
+    backgroundColor: "#242322",
   },
   title: {
     marginTop: "130px",
     fontSize: "32px",
     fontWeight: "bold",
     textAlign: "center",
-    '& span': {
-      fontFamily: 'Rockout',
+    "& span": {
+      fontFamily: "Rockout",
     },
   },
   cards: {
@@ -38,6 +38,8 @@ const useStyles = makeStyles(() => ({
     height: "100vh",
     margin: "auto",
     justifyContent: "center",
+    alignItems: "center",
+    alignContent: "center",
   },
 }));
 

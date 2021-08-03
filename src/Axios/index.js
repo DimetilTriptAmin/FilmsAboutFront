@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const axiosDefault = (url, method, errors, data) => {
+export const axiosDefault = (url, method, data) => {
   return axios({
     url,
     method,
@@ -9,9 +9,5 @@ export const axiosDefault = (url, method, errors, data) => {
       Accept: "application/json",
       "Content-Type": "application/json; charset=utf-8",
     },
-  }).catch((error) => {
-    errors.hasErrors = true;
-    errors.message = error.message;
-    console.log('axiosDefault: ' + error.message)
   });
 };

@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
+import { UsernameSelector } from "../redux/selectors";
 import AccountMenu from "../views/AccountMenu";
 
 const AccountMenuContainer = () => {
@@ -10,6 +12,8 @@ const AccountMenuContainer = () => {
   const handleMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
+  const Username = useSelector(UsernameSelector);
 
   const handleMenuClose = () => {
     setAnchorEl(null);
@@ -21,6 +25,7 @@ const AccountMenuContainer = () => {
       handleMenuClose={handleMenuClose}
       isMenuOpen={isMenuOpen}
       anchorEl={anchorEl}
+      username={Username}
     />
   );
 };
