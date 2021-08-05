@@ -8,17 +8,15 @@ export const commentsSlice = createSlice({
     Loaded: false,
   },
   reducers: {
-    commentsFetchedSuccess: (state, action) => {
+    COMMENTS_SUCCESS: (state, action) => {
       state.comments = action.payload;
       state.Loaded = true;
       state.isLoading = false;
     },
-    commentsFetchedFail: (state, action) => {
+    COMMENTS_FAILURE: (state, action) => {
       state.isLoading = false;
     },
   },
 });
 
-export const { commentsFetchedSuccess, commentsFetchedFail } =
-  commentsSlice.actions;
 export default commentsSlice.reducer;
