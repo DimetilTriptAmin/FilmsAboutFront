@@ -26,13 +26,13 @@ export const filmSlice = createSlice({
     FILM_FAILURE: (state, action) => {
       state.isLoading = false;
     },
-    // FILM_RESET_REQUEST: (state, action) => {
-    //   state.isLoading = true;
-    //   state.Loaded = false;
-    // },
+    FILM_DATA_RESET: (state, action) => {
+      state.isLoading = true;
+      state.Loaded = false;
+    },
   },
 });
 
-export const { filmFetchedSuccess, filmFetchedFail, filmResetData } =
+export const { FILM_SUCCESS, FILM_FAILURE, FILM_DATA_RESET } =
   filmSlice.actions;
 export default filmSlice.reducer;

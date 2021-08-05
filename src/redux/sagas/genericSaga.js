@@ -10,14 +10,12 @@ export function* genericWorker(action) {
 
   const rawMethodName = type.substring(type.lastIndexOf("/") + 1);
   const methodName = lodash.camelCase(rawMethodName);
-  console.log(payload);
+
   const accessToken = accessTokenSelector();
   try {
     const response = yield callMethods[methodName](payload, accessToken);
-    if (response === undefined) throw "Server is offline.";
-
     const successType = action.type.replace("_REQUEST", "_SUCCESS");
-    yield put({ type: successType, payload: response.data });
+    yield put({ type: successType, payload: response?.data });
   } catch (err) {
     yield put(
       enqueueSnackbarError({
