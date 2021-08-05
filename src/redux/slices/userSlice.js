@@ -8,6 +8,7 @@ export const userSlice = createSlice({
   },
   reducers: {
     userFetchedSuccess: (state, action) => {
+      console.log(action.type);
       state.users[action.payload.userId] = action.payload.response;
       state.isLoading = false;
     },

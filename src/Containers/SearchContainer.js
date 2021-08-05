@@ -11,10 +11,12 @@ const SearchContainer = ({ history }) => {
 
   const [anchorEl, setAnchorEl] = useState(null);
   const [searchString, setSearchString] = useState("");
-  
+
   const isLoading = useSelector(filmListSelector).isLoading;
   const filmList = useSelector(filmListSelector).films.filter((film) =>
-    film.title.match(new RegExp(`\\b${searchString}`, "i")).sort((a, b) => b.rating - a.rating)
+    film.title
+      .match(new RegExp(`\\b${searchString}`, "i"))
+      .sort((a, b) => b.rating - a.rating),
   );
 
   const handleChange = (event) => {
@@ -23,7 +25,7 @@ const SearchContainer = ({ history }) => {
   };
 
   const onSearchClick = () => {
-    if (!filmList.Loaded) dispatch(filmListRequest());
+    //if (!filmList.Loaded) dispatch(filmListRequest());
   };
 
   const onMenuItemClick = () => {

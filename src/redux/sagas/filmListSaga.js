@@ -29,5 +29,5 @@ function* sagaFilmListRequest(data) {
 }
 
 export function* filmListWatcher() {
-  yield takeEvery("ALL_FILM_REQUEST", sagaFilmListRequest);
+  //yield takeEvery("ALL_FILM_REQUEST", sagaFilmListRequest);
 }

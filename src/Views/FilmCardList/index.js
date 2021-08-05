@@ -18,9 +18,9 @@ const FilmCardList = (props) => {
             Watch your favorite movies on <span>Films About</span>
           </div>
           <div className={classes.cards}>
-            {props.films.films.map((film) => (
-              <div className={classes.item} key={film.id}>
-                <FilmCardContainer film={film} />
+            {props.films.films.map((filmData) => (
+              <div className={classes.item} key={filmData.id}>
+                <FilmCardContainer filmData={filmData} />
               </div>
             ))}
           </div>
