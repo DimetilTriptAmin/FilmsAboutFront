@@ -5,6 +5,7 @@ export const axiosDefault = (url, method, data, token) => {
     url,
     method,
     data,
+    withCredentials: true,
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json; charset=utf-8",

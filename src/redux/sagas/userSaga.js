@@ -42,7 +42,7 @@ function* logInRequest(data) {
                 'accessToken',
                 response.data.accessToken
             );
-            window.location.reload(); // remove on refactoring
+            //window.location.reload(); // remove on refactoring
         } else {
             yield put(
                 enqueueSnackbarError({
@@ -108,7 +108,7 @@ function* logOutRequest() {
         if (response.status === 200) {
           console.log('3. if status 200 == true');
             yield window.localStorage.clear();
-            window.location.reload(); // remove on refactoring
+            //window.location.reload(); // remove on refactoring
         } else {
           console.log('4. else => status not 200: ' + response);
             yield put(
