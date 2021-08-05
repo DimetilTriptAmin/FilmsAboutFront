@@ -18,9 +18,7 @@ const AppRouter = () => {
         <Route exact path='/'>
           <FilmCardListContainer />
         </Route>
-        <Route path='/film:id'>
-          <FilmContainer />
-        </Route>
+        <Route path='/film:id' component={FilmContainer} />
         <Route path='/profile'>
           <UserSettingsContainer />
         </Route>

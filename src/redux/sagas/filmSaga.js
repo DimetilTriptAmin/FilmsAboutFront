@@ -1,6 +1,7 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 
 import { axiosDefault } from "../../axios";
+import { REQUESTS } from "../../helper/constants";
 import { filmFetchedSuccess, filmFetchedFail } from "../slices/filmSlice";
 import { enqueueSnackbarError } from "../slices/notificationSlice";
 
@@ -25,6 +26,11 @@ function* sagaFilmRequest(data) {
   }
 }
 
+function* sagaGoToFilmRequest(data) {
+  yield call(data.payload.push, "/film" + data.payload.id);
+}
+
 export function* filmWatcher() {
-  yield takeEvery("FILM_REQUEST", sagaFilmRequest);
+  yield takeEvery(REQUESTS.filmRequest, sagaFilmRequest);
+  yield takeEvery(REQUESTS.goToFilmRequest, sagaGoToFilmRequest);
 }
