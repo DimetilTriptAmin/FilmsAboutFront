@@ -15,5 +15,3 @@ export const IsAuthorizedSelector = () =>
 
 export const accessTokenSelector = () =>
   window.localStorage.getItem("accessToken");
-
-// export const logOutSelector = () =>

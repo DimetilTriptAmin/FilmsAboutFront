@@ -9,7 +9,7 @@ export const commentsSlice = createSlice({
   },
   reducers: {
     COMMENTS_SUCCESS: (state, action) => {
-      console.log(action.payload + '!!!!!!!!!!!!!!!!!!!!!!!');
+      console.log(action.payload);
       state.comments = action.payload;
       state.Loaded = true;
       state.isLoading = false;
