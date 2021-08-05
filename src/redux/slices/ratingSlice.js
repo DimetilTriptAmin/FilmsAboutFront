@@ -9,7 +9,7 @@ export const ratingSlice = createSlice({
     isLoading: true,
   },
   reducers: {
-    ratingByPairIdFetchedSuccess: (state, action) => {
+    RATING_BY_PAIR_ID_SUCCESS: (state, action) => {
       state.rating[action.payload.userId] = action.payload.response;
       state.isLoading = false;
     },

@@ -20,7 +20,7 @@ const FilmContainer = () => {
     dispatch(commentsRequest(id));
 
     return () => {
-      dispatch(filmResetData());
+      //dispatch(filmResetData());
     };
   }, [id, dispatch]);
 

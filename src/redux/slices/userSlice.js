@@ -7,7 +7,7 @@ export const userSlice = createSlice({
     isLoading: true,
   },
   reducers: {
-    userFetchedSuccess: (state, action) => {
+    USER_BY_ID_SUCCESS: (state, action) => {
       console.log(action.type);
       state.users[action.payload.userId] = action.payload.response;
       state.isLoading = false;

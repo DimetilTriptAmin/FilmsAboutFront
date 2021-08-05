@@ -13,7 +13,7 @@ export const filmSlice = createSlice({
     trailerLink: "",
   },
   reducers: {
-    filmFetchedSuccess: (state, action) => {
+    FILM_SUCCESS: (state, action) => {
       state.isLoading = false;
       state.Loaded = true;
       state.id = action.payload.id;
@@ -23,13 +23,13 @@ export const filmSlice = createSlice({
       state.rating = action.payload.rating;
       state.trailerLink = action.payload.trailerLink;
     },
-    filmFetchedFail: (state, action) => {
+    FILM_FAILURE: (state, action) => {
       state.isLoading = false;
     },
-    filmResetData: (state, action) => {
-      state.isLoading = true;
-      state.Loaded = false;
-    },
+    // FILM_RESET_REQUEST: (state, action) => {
+    //   state.isLoading = true;
+    //   state.Loaded = false;
+    // },
   },
 });
 
