@@ -8,6 +8,10 @@ import { enqueueSnackbarError } from "../slices/notificationSlice";
 export function* genericWorker(action) {
   const { payload, type } = action;
 
+  //useSlice() generates actions with types like: {sliceName}/{reducerName}
+  //so we have to add a preffix {sliceName}/ to all actions
+  //and remove this part on rawMethodName extracting from action.type
+
   const rawMethodName = type.substring(type.lastIndexOf("/") + 1);
   const methodName = lodash.camelCase(rawMethodName);
 
