@@ -1,19 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const ratingSlice = createSlice({
-  name: "rating",
+export const ratingListSlice = createSlice({
+  name: "ratingList",
   initialState: {
-    rating: [],
+    values: [],
     hasErrors: false,
     isLoading: true,
   },
   reducers: {
     RATING_BY_PAIR_ID_SUCCESS: (state, action) => {
-      console.log(action.payload, "RATING SLICE");
-      //state.rating[action.payload.id] = action.payload;
+      state.values[action.payload.userId] = action.payload.rate;
       state.isLoading = false;
     },
   },
 });
 
-export default ratingSlice.reducer;
+export default ratingListSlice.reducer;

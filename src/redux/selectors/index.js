@@ -1,16 +1,16 @@
-export const notificationSelector = (state) => state.notification.notification;
+export const notificationSelector = (state) => state.notification.data;
 export const filmDataSelector = (state) => state.film;
-export const filmCommentsSelector = (state) => state.comments;
+export const filmCommentListSelector = (state) => state.commentList;
 export const filmListSelector = (state) => state.filmList;
 
-export const UserRateSelector = (userId) => (state) =>
-  state.rating.rating[userId];
+export const userRateSelector = (userId) => (state) =>
+  state.ratingList.values[userId];
 
-export const UserSelector = (userId) => (state) => {
-  return state.user.users[userId];
+export const userListSelector = (userId) => (state) => {
+  return state.userList.values[userId];
 };
 
-export const IsAuthorizedSelector = () =>
+export const isAuthorizedSelector = () =>
   Boolean(window.localStorage.getItem("accessToken"));
 
 export const accessTokenSelector = () =>

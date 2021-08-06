@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ratingByPairIdRequest, userById } from "../redux/actions";
-import { UserRateSelector, UserSelector } from "../redux/selectors";
+import { userRateSelector, userListSelector } from "../redux/selectors";
 import PropTypes from "prop-types";
 
 import Comment from "../views/Comment";
@@ -9,8 +9,8 @@ import Comment from "../views/Comment";
 const CommentContainer = ({ userId, filmId, publishDate, text }) => {
   const dispatch = useDispatch();
 
-  const fetchedRate = useSelector(UserRateSelector(userId));
-  const fetchedUser = useSelector(UserSelector(userId));
+  const fetchedRate = useSelector(userRateSelector(userId));
+  const fetchedUser = useSelector(userListSelector(userId));
 
   useEffect(() => {
     dispatch(ratingByPairIdRequest({ userId: userId, filmId: filmId }));

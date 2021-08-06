@@ -4,9 +4,9 @@ import { rootSaga } from "./sagas";
 
 import filmReducer from "./slices/filmSlice";
 import filmListReducer from "./slices/filmListSlice";
-import commentsReducer from "./slices/commentsSlice";
-import ratingReducer from "./slices/ratingSlice";
-import userReducer from "./slices/userSlice";
+import commentListReducer from "./slices/commentListSlice";
+import ratingListReducer from "./slices/ratingListSlice";
+import userListReducer from "./slices/userListSlice";
 import notificationReducer from "./slices/notificationSlice";
 
 const sagaMiddleware = createSagaMiddleware();
@@ -15,9 +15,9 @@ export default configureStore({
   reducer: {
     film: filmReducer,
     filmList: filmListReducer,
-    comments: commentsReducer,
-    rating: ratingReducer,
-    user: userReducer,
+    commentList: commentListReducer,
+    ratingList: ratingListReducer,
+    userList: userListReducer,
     notification: notificationReducer,
   },
   middleware: [sagaMiddleware],

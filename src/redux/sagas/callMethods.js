@@ -45,11 +45,21 @@ export function* logOutRequest(payload, accessToken) {
   );
 }
 
+export function* currentFilmRatingRequest(payload, accessToken) {
+  return yield call(
+    axiosDefault,
+    `https://localhost:44364/api/Rating/ratingForFilm/${payload}`,
+    "get",
+    null,
+    accessToken,
+  );
+}
+
 //#endregion
 
 //#region Comment's call Methods
 
-export function* commentsRequest(payload) {
+export function* commentListRequest(payload) {
   return yield call(
     axiosDefault,
     `https://localhost:44364/api/Comment/forFilm${payload}`,

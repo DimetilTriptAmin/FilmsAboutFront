@@ -95,9 +95,10 @@ const Film = ({ filmData, comments }) => {
               </Container>
               <div className={classes.divider} />
               <Container maxWidth='lg'>
+                {console.log(comments)}
                 {!comments.isLoading ? (
                   comments.Loaded ? (
-                    comments.comments.map((comment, key) => (
+                    comments.textData.map((comment, key) => (
                       <CommentContainer
                         text={comment.text}
                         publishDate={comment.publishDate}

@@ -3,14 +3,20 @@ import { createSlice } from "@reduxjs/toolkit";
 export const userSlice = createSlice({
   name: "user",
   initialState: {
-    users: [],
-    isLoading: true,
+    name: '',
+    email: '',
+    avatar: '',
+    currentFilmRating: 0,
   },
   reducers: {
     USER_BY_ID_SUCCESS: (state, action) => {
-      state.users[action.payload.id] = action.payload;
-      state.isLoading = false;
+      state.name = action.payload.userName;
+      state.email = action.payload.email;
+      state.avatar = action.payload.avatar;
     },
+    CURRENT_FILM_RATING_SUCCESS: (state, action) => {
+      state.currentFilmRating = action.payload;
+    }
   },
 });
 
