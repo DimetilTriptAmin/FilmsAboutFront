@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { ratinfByPairIdRequest, userById } from "../redux/actions";
+import { ratingByPairIdRequest, userById } from "../redux/actions";
 import { UserRateSelector, UserSelector } from "../redux/selectors";
 import PropTypes from "prop-types";
 
@@ -13,7 +13,7 @@ const CommentContainer = ({ userId, filmId, publishDate, text }) => {
   const fetchedUser = useSelector(UserSelector(userId));
 
   useEffect(() => {
-    dispatch(ratinfByPairIdRequest({ userId: userId, filmId: filmId }));
+    dispatch(ratingByPairIdRequest({ userId: userId, filmId: filmId }));
     dispatch(userById(userId));
   }, [userId, filmId, dispatch]);
 

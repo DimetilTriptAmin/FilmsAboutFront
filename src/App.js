@@ -1,23 +1,22 @@
-import React from 'react';
-import Slide from '@material-ui/core/Slide';
+import React from "react";
+import Slide from "@material-ui/core/Slide";
 
-import NotificationContainer from './containers/NotificationContainer';
-import AppRouter from './AppRouter';
+import NotificationContainer from "./containers/NotificationContainer";
+import AppRouter from "./AppRouter";
 
 const App = () => {
-
-    return (
-        <div>
-            <NotificationContainer
-                anchorOrigin={{
-                    vertical: 'bottom',
-                    horizontal: 'left',
-                }}
-                TransitionComponent={Slide}
-            />
-            <AppRouter />
-        </div>
-    );
+  return (
+    <div>
+      <NotificationContainer
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "left",
+        }}
+        TransitionComponent={Slide}
+      />
+      <AppRouter />
+    </div>
+  );
 };
 
 App.propTypes = {};

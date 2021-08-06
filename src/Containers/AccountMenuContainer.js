@@ -1,22 +1,27 @@
 import React from "react";
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { logOutRequest } from "../redux/actions";
+import { withRouter } from "react-router";
 
-import { UsernameSelector } from "../redux/selectors";
 import AccountMenu from "../views/AccountMenu";
 
 const AccountMenuContainer = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const isMenuOpen = Boolean(anchorEl);
 
+  const dispatch = useDispatch();
+
   const handleMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
-  const Username = useSelector(UsernameSelector);
-
   const handleMenuClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleLogOut = () => {
+    dispatch(logOutRequest());
   };
 
   return (
@@ -25,9 +30,9 @@ const AccountMenuContainer = () => {
       handleMenuClose={handleMenuClose}
       isMenuOpen={isMenuOpen}
       anchorEl={anchorEl}
-      username={Username}
+      handleLogOut={handleLogOut}
     />
   );
 };
 
-export default AccountMenuContainer;
+export default withRouter(AccountMenuContainer);

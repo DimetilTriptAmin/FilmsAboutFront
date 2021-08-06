@@ -12,5 +12,6 @@ export const UserSelector = (userId) => (state) => {
 
 export const IsAuthorizedSelector = () =>
   Boolean(window.localStorage.getItem("accessToken"));
-export const UsernameSelector = () =>
-  Boolean(window.localStorage.getItem("username"));
+
+export const accessTokenSelector = () =>
+  window.localStorage.getItem("accessToken");

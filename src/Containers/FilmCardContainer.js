@@ -1,14 +1,16 @@
-import { FilmCard } from "../views/FilmCard";
 import { withRouter } from "react-router";
+import { useDispatch } from "react-redux";
 
-const FilmCardContainer = (props) => {
-  const { id, title, description, trailerLink, rating, poster } = props.film;
+import { FilmCard } from "../views/FilmCard";
+import { goToFilmRequest } from "../redux/actions";
 
-  const { history } = props;
+const FilmCardContainer = ({ history, filmData }) => {
+  const { id, title, description, trailerLink, rating, poster } = filmData;
+
+  const dispatch = useDispatch();
 
   const handleClick = () => {
-    const newLocation = "/film" + id;
-    history.push(newLocation);
+    dispatch(goToFilmRequest({ push: history.push, id: id }));
   };
 
   return (
@@ -24,5 +26,4 @@ const FilmCardContainer = (props) => {
   );
 };
 
-const FilmCardContainerWithRouter = withRouter(FilmCardContainer);
-export default FilmCardContainerWithRouter;
+export default withRouter(FilmCardContainer);

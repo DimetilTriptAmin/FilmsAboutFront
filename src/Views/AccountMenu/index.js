@@ -11,7 +11,8 @@ const AccountMenu = ({
   anchorEl,
   handleMenuClose,
   handleMenuOpen,
-  Username,
+  username,
+  handleLogOut
 }) => {
   const classes = useStyles();
   return (
@@ -24,7 +25,7 @@ const AccountMenu = ({
         onClick={handleMenuOpen}
       >
         <Typography className={classes.title} variant='h6' noWrap>
-          {Username}
+          {username}
         </Typography>
         <AccountCircle />
       </IconButton>
@@ -39,7 +40,7 @@ const AccountMenu = ({
         onClose={handleMenuClose}
       >
         <MenuItem className={classes.menuItem}>Settings</MenuItem>
-        <MenuItem className={classes.menuItem}>Log out</MenuItem>
+        <MenuItem className={classes.menuItem} onClick={handleLogOut}>Log out</MenuItem>
       </Menu>
     </div>
   );

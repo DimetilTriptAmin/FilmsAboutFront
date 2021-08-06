@@ -7,12 +7,11 @@ export const userSlice = createSlice({
     isLoading: true,
   },
   reducers: {
-    userFetchedSuccess: (state, action) => {
-      state.users[action.payload.userId] = action.payload.response;
+    USER_BY_ID_SUCCESS: (state, action) => {
+      state.users[action.payload.id] = action.payload;
       state.isLoading = false;
     },
   },
 });
 
-export const { userFetchedSuccess } = userSlice.actions;
 export default userSlice.reducer;

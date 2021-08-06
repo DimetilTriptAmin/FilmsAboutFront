@@ -11,10 +11,10 @@ const SearchContainer = ({ history }) => {
 
   const [anchorEl, setAnchorEl] = useState(null);
   const [searchString, setSearchString] = useState("");
-  
+
   const isLoading = useSelector(filmListSelector).isLoading;
   const filmList = useSelector(filmListSelector).films.filter((film) =>
-    film.title.match(new RegExp(`\\b${searchString}`, "i")).sort((a, b) => b.rating - a.rating)
+    film.title.match(new RegExp(`\\b${searchString}`, "i")),
   );
 
   const handleChange = (event) => {
