@@ -14,7 +14,7 @@ export const userSlice = createSlice({
       state.email = action.payload.email;
       state.avatar = action.payload.avatar;
     },
-    CURRENT_FILM_RATING_SUCCESS: (state, action) => {
+    USER_RATING_SUCCESS: (state, action) => {
       state.currentFilmRating = action.payload;
     }
   },

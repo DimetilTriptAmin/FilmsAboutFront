@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { logOutRequest } from "../redux/actions";
 import { withRouter } from "react-router";
 

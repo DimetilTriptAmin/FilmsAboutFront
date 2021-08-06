@@ -62,7 +62,7 @@ export function* currentFilmRatingRequest(payload, accessToken) {
 export function* commentListRequest(payload) {
   return yield call(
     axiosDefault,
-    `https://localhost:44364/api/Comment/forFilm${payload}`,
+    `https://localhost:44364/api/Comment/getAll${payload}`,
     "get",
   );
 }
@@ -91,10 +91,10 @@ export function* goToFilmRequest(payload) {
 
 //#region Rating's call Methods
 
-export function* ratingByPairIdRequest(payload) {
+export function* getUserRatingRequest(payload) {
   return yield call(
     axiosDefault,
-    `https://localhost:44364/api/Rating/getByPair?filmId=${payload.filmId}&userId=${payload.userId}`,
+    `https://localhost:44364/api/Rating/getUserRating?filmId=${payload.filmId}&userId=${payload.userId}`,
     "get",
   );
 }
