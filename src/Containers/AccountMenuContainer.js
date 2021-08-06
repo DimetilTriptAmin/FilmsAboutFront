@@ -35,5 +35,4 @@ const AccountMenuContainer = () => {
   );
 };
 
-const AccountMenuContainerWithRouter = withRouter(AccountMenuContainer);
-export default AccountMenuContainerWithRouter;
+export default withRouter(AccountMenuContainer);
