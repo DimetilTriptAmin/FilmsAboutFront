@@ -27,5 +27,4 @@ const HeaderContainer = ({ history }) => {
   );
 };
 
-const HeaderContainerWithRouter = withRouter(HeaderContainer);
-export default HeaderContainerWithRouter;
+export default withRouter(HeaderContainer);

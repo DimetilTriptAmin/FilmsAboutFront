@@ -4,14 +4,16 @@ export const filmCommentListSelector = (state) => state.commentList;
 export const filmListSelector = (state) => state.filmList;
 
 export const userRateSelector = (userId) => (state) =>
-  state.ratingList.values[userId];
+    state.ratingList.values[userId];
+
+export const usernameSelector = (state) => {console.log(state.user)};
 
 export const userListSelector = (userId) => (state) => {
-  return state.userList.values[userId];
+    return state.userList.values[userId];
 };
 
 export const isAuthorizedSelector = () =>
-  Boolean(window.localStorage.getItem("accessToken"));
+    Boolean(window.localStorage.getItem('accessToken'));
 
 export const accessTokenSelector = () =>
-  window.localStorage.getItem("accessToken");
+    window.localStorage.getItem('accessToken');

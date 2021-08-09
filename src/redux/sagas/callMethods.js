@@ -55,6 +55,10 @@ export function* currentFilmRatingRequest(payload, accessToken) {
   );
 }
 
+export function* goToSettingsRequest(payload) {
+  yield call(payload.push, "/profile");
+}
+
 //#endregion
 
 //#region Comment's call Methods

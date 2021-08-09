@@ -6,6 +6,8 @@ export const filmRequest = createAction("film/FILM_REQUEST");
 export const commentListRequest = createAction("commentList/COMMENT_LIST_REQUEST");
 
 export const currentFilmRatingRequest = createAction("user/CURRENT_FILM_RATING_REQUEST");
+export const goToSettingsRequest = createAction("user/GO_TO_SETTINGS_REQUEST");
+export const userRequest = createAction("user/USER_REQUEST");
 
 export const userRatingRequest = createAction(
   "ratingList/USER_RATING_REQUEST",

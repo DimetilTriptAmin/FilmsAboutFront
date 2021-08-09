@@ -12,7 +12,8 @@ const AccountMenu = ({
   handleMenuClose,
   handleMenuOpen,
   username,
-  handleLogOut
+  handleLogOut,
+  handleSettings
 }) => {
   const classes = useStyles();
   return (
@@ -39,7 +40,7 @@ const AccountMenu = ({
         open={isMenuOpen}
         onClose={handleMenuClose}
       >
-        <MenuItem className={classes.menuItem}>Settings</MenuItem>
+        <MenuItem className={classes.menuItem} onClick={handleSettings}>Settings</MenuItem>
         <MenuItem className={classes.menuItem} onClick={handleLogOut}>Log out</MenuItem>
       </Menu>
     </div>
