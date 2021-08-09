@@ -1,9 +1,10 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logOutRequest, goToSettingsRequest } from "../redux/actions";
 import { withRouter } from "react-router";
-import { usernameSelector, accessTokenSelector } from "../redux/selectors";
+import { usernameSelector } from "../redux/selectors";
+import { userRequest } from "../redux/actions";
 
 import AccountMenu from "../views/AccountMenu";
 
@@ -32,12 +33,8 @@ const AccountMenuContainer = ({history}) => {
     setAnchorEl(null);
   };
 
-  // get userId from access token, get userinfo by get_user_by_id, send username prop to view component
   useEffect(() => {
-    dispatch()
-    const userId = accessTokenSelector()
-    const id = dispatch(userByIdRequest())
-    dispatch(userByIdRequest(id));
+    dispatch(userRequest());
   }, [dispatch]);
 
   return (

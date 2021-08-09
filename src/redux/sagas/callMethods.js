@@ -4,11 +4,13 @@ import { axiosDefault } from "../../axios";
 
 //#region User's call Methods
 
-export function* userByIdRequest(payload) {
+export function* userRequest(payload, accessToken) {
   return yield call(
     axiosDefault,
-    `https://localhost:44364/api/User/${payload}`,
+    `https://localhost:44364/api/User`,
     "get",
+    null,
+    accessToken,
   );
 }
 
@@ -17,9 +19,10 @@ export function* logInRequest(payload) {
     axiosDefault,
     `https://localhost:44364/api/User/login`,
     "post",
-    JSON.stringify(payload),
+    JSON.stringify(payload.values),
   );
   window.localStorage.setItem("accessToken", response.data.accessToken);
+    yield call(payload.push, '/');
   return response;
 }
 
@@ -28,9 +31,10 @@ export function* registrationRequest(payload) {
     axiosDefault,
     `https://localhost:44364/api/User/register`,
     "post",
-    JSON.stringify(payload),
+    JSON.stringify(payload.values),
   );
-  //window.localStorage.setItem("accessToken", response.data.accessToken);
+  window.localStorage.setItem("accessToken", response.data.accessToken);
+  yield call(payload.push, '/');
   return response;
 }
 
@@ -45,10 +49,21 @@ export function* logOutRequest(payload, accessToken) {
   );
 }
 
+export function* refreshToken(payload, accessToken) {
+  yield window.localStorage.removeItem("accessToken");
+  return yield call(
+    axiosDefault,
+    `https://localhost:44364/api/User/refresh`,
+    "put",
+    null,
+    accessToken,
+  );
+}
+
 export function* currentFilmRatingRequest(payload, accessToken) {
   return yield call(
     axiosDefault,
-    `https://localhost:44364/api/Rating/ratingForFilm/${payload}`,
+    `https://localhost:44364/api/Rating/getUserRating${payload}`,
     "get",
     null,
     accessToken,
@@ -57,6 +72,16 @@ export function* currentFilmRatingRequest(payload, accessToken) {
 
 export function* goToSettingsRequest(payload) {
   yield call(payload.push, "/profile");
+}
+
+export function* setFilmRatingRequest(payload, accessToken) {
+  return yield call(
+    axiosDefault,
+    `https://localhost:44364/api/Rating/ratefilm`,
+    "post",
+    payload,
+    accessToken,
+  );
 }
 
 //#endregion

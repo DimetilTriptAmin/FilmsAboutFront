@@ -52,7 +52,7 @@ AccountMenu.propTypes = {
   anchorEl: PropTypes.any,
   handleMenuClose: PropTypes.func.isRequired,
   handleMenuOpen: PropTypes.func.isRequired,
-  Username: PropTypes.string.isRequired,
+  Username: PropTypes.string,
 };
 
 export default AccountMenu;

@@ -2,16 +2,16 @@ import React from 'react';
 import Login from '../views/Login';
 import { useDispatch } from 'react-redux';
 import { logInRequest } from '../redux/actions';
+import { withRouter } from 'react-router';
 
-const LoginContainer = () => {
+const LoginContainer = ({history}) => {
     const dispatch = useDispatch();
 
     const handleFormSubmit = (values) => {
-        console.log(values);
-        dispatch(logInRequest(values));
+        dispatch(logInRequest({values: values, push: history.push}));
     };
 
     return <Login handleFormSubmit={handleFormSubmit} />;
 };
 
-export default LoginContainer;
+export default withRouter(LoginContainer);
