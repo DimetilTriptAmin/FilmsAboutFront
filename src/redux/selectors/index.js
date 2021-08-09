@@ -3,12 +3,7 @@ export const filmDataSelector = (state) => state.film;
 export const filmCommentListSelector = (state) => state.commentList;
 export const filmListSelector = (state) => state.filmList;
 
-export const userRateSelector = (userId) => (state) =>
-  state.ratingList.values[userId];
-
-export const userListSelector = (userId) => (state) => {
-  return state.userList.values[userId];
-};
+export const userRatingSelector = (state) => state.user.currentFilmRating;
 
 export const isAuthorizedSelector = () =>
   Boolean(window.localStorage.getItem("accessToken"));

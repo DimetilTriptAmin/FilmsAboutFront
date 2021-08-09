@@ -59,9 +59,19 @@ export function* refreshToken(payload, accessToken) {
 export function* currentFilmRatingRequest(payload, accessToken) {
   return yield call(
     axiosDefault,
-    `https://localhost:44364/api/Rating/ratingForFilm/${payload}`,
+    `https://localhost:44364/api/Rating/getUserRating${payload}`,
     "get",
     null,
+    accessToken,
+  );
+}
+
+export function* setFilmRatingRequest(payload, accessToken) {
+  return yield call(
+    axiosDefault,
+    `https://localhost:44364/api/Rating/ratefilm`,
+    "post",
+    payload,
     accessToken,
   );
 }

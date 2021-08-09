@@ -10,8 +10,9 @@ import CommentListContainer from "../../containers/CommentListContainer";
 
 import useStyles from "./styles";
 
-const Film = ({ filmData }) => {
+const Film = ({ filmData, userRating, onRatingClick }) => {
   const classes = useStyles();
+  console.log(userRating);
   return (
     <Container className={classes.root} maxWidth='lg'>
       {!filmData.isLoading ? (
@@ -46,6 +47,8 @@ const Film = ({ filmData }) => {
                     <Rating
                       className={classes.rating}
                       name='simple-controlled'
+                      value={userRating}
+                      onChange={onRatingClick}
                     />
                   </div>
                 </Container>
@@ -114,7 +117,6 @@ const Film = ({ filmData }) => {
 
 Film.propTypes = {
   filmData: PropTypes.object.isRequired,
-  comments: PropTypes.object.isRequired,
 };
 
 export default Film;
