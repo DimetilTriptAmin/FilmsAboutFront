@@ -12,7 +12,7 @@ const AccountMenu = ({
   handleMenuClose,
   handleMenuOpen,
   username,
-  handleLogOut
+  handleLogOut,
 }) => {
   const classes = useStyles();
   return (
@@ -40,7 +40,9 @@ const AccountMenu = ({
         onClose={handleMenuClose}
       >
         <MenuItem className={classes.menuItem}>Settings</MenuItem>
-        <MenuItem className={classes.menuItem} onClick={handleLogOut}>Log out</MenuItem>
+        <MenuItem className={classes.menuItem} onClick={handleLogOut}>
+          Log out
+        </MenuItem>
       </Menu>
     </div>
   );
@@ -51,7 +53,7 @@ AccountMenu.propTypes = {
   anchorEl: PropTypes.any,
   handleMenuClose: PropTypes.func.isRequired,
   handleMenuOpen: PropTypes.func.isRequired,
-  Username: PropTypes.string.isRequired,
+  Username: PropTypes.string,
 };
 
 export default AccountMenu;

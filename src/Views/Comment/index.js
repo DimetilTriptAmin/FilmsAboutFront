@@ -54,10 +54,11 @@ const Comment = ({ username, avatar, rating, publishDate, text }) => {
 };
 
 Comment.propTypes = {
-  user: PropTypes.object.isRequired,
-  userRate: PropTypes.number.isRequired,
+  username: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired,
   publishDate: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired,
 };
 
 export default Comment;

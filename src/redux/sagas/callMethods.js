@@ -30,7 +30,7 @@ export function* registrationRequest(payload) {
     "post",
     JSON.stringify(payload),
   );
-  //window.localStorage.setItem("accessToken", response.data.accessToken);
+  window.localStorage.setItem("accessToken", response.data.accessToken);
   return response;
 }
 
@@ -41,6 +41,17 @@ export function* logOutRequest(payload, accessToken) {
     `https://localhost:44364/api/User/logout`,
     "delete",
     payload,
+    accessToken,
+  );
+}
+
+export function* refreshToken(payload, accessToken) {
+  yield window.localStorage.removeItem("accessToken");
+  return yield call(
+    axiosDefault,
+    `https://localhost:44364/api/User/refresh`,
+    "put",
+    null,
     accessToken,
   );
 }
