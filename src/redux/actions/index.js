@@ -14,6 +14,9 @@ export const userRequest = createAction("user/USER_REQUEST");
 export const setFilmRatingRequest = createAction(
   "user/SET_FILM_RATING_REQUEST",
 );
+export const updateUserRequest = createAction(
+  "user/UPDATE_REQUEST",
+);
 
 export const userRatingRequest = createAction("ratingList/USER_RATING_REQUEST");
 

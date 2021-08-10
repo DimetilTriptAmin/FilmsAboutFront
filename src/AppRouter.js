@@ -9,6 +9,7 @@ import NotFound from './views/NotFound';
 import HeaderContainer from './containers/HeaderContainer';
 import LoginContainer from './containers/LoginContainer';
 import RegistrationContainer from './containers/RegistrationContainer';
+import PrivateRoute from './PrivateRoute';
 
 const AppRouter = () => {
     return (
@@ -19,7 +20,7 @@ const AppRouter = () => {
                     <FilmCardListContainer />
                 </Route>
                 <Route path="/film:id" component={FilmContainer} />
-                <Route path="/profile" component={UserSettingsContainer} /> {/*todo private route*/}
+                <PrivateRoute path="/profile" component={UserSettingsContainer} />
                 <Route path="/login">{<LoginContainer />}</Route>
                 <Route path="/registration">
                     <RegistrationContainer />

@@ -3,7 +3,9 @@ export const filmDataSelector = (state) => state.film;
 export const filmCommentListSelector = (state) => state.commentList;
 export const filmListSelector = (state) => state.filmList;
 
+export const userSelector = (state) => state.user;
 export const usernameSelector = (state) => state.user.name;
+export const avatarSelector = (state) => state.user.avatar;
 
 export const userRatingSelector = (state) => state.user.currentFilmRating;
 

@@ -27,6 +27,9 @@ export const userSlice = createSlice({
     CURRENT_FILM_SET_RATING: (state, action) => {
       state.currentFilmRating = action.payload;
     },
+    UPDATE_SUCCESS: (state, action) => {
+      state.avatar = action.payload.avatar;
+    }
   },
 });
 

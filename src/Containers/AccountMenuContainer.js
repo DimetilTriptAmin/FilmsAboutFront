@@ -35,7 +35,9 @@ const AccountMenuContainer = ({ history }) => {
   };
 
   useEffect(() => {
-    if (isAuthorized) dispatch(userRequest());
+    if (isAuthorized){
+      dispatch(userRequest());
+    } 
   }, [dispatch, isAuthorized]);
 
   return (

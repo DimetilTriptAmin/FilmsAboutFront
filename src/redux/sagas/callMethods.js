@@ -26,6 +26,17 @@ export function* logInRequest(payload) {
   return response;
 }
 
+export function* updateRequest(payload, accessToken) {
+  const response = yield call(
+    axiosDefault,
+    `https://localhost:44364/api/User/update`,
+    "put",
+    JSON.stringify(payload),
+    accessToken,
+  );
+  return response;
+}
+
 export function* registrationRequest(payload) {
   const response = yield call(
     axiosDefault,
