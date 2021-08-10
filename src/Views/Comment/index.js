@@ -10,7 +10,6 @@ import CommentMenuContainer from "../../containers/CommentMenuContainer";
 
 const Comment = ({ username, avatar, rating, publishDate, text, id }) => {
   const classes = useStyles();
-
   const AuthorizedUsername = useSelector(usernameSelector);
 
   return (

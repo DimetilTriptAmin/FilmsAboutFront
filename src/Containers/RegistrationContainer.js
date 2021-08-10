@@ -1,18 +1,25 @@
-import React from 'react';
-import Registration from '../views/Registration';
-import { useDispatch } from 'react-redux';
-import { registrationRequest } from '../redux/actions';
-import { withRouter } from 'react-router';
+import React from "react";
+import Registration from "../views/Registration";
+import { useDispatch, useSelector } from "react-redux";
+import { registrationRequest } from "../redux/actions";
+import { withRouter } from "react-router";
 
-const RegistrationContainer = ({history}) => {
+import { LOADING_TRUE } from "../redux/slices/userSlice";
+import { userLoadingSelector } from "../redux/selectors";
 
-    const dispatch = useDispatch();
+const RegistrationContainer = ({ history }) => {
+  const dispatch = useDispatch();
 
-    const handleFormSubmit = (values) => {
-        dispatch(registrationRequest({values: values, push: history.push}));
-    };
+  const isLoading = useSelector(userLoadingSelector);
 
-    return <Registration handleFormSubmit={handleFormSubmit}/>;
+  const handleFormSubmit = (values) => {
+    dispatch(LOADING_TRUE());
+    dispatch(registrationRequest({ values: values, push: history.push }));
+  };
+
+  return (
+    <Registration handleFormSubmit={handleFormSubmit} isLoading={isLoading} />
+  );
 };
 
 export default withRouter(RegistrationContainer);

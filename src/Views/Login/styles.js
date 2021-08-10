@@ -75,6 +75,21 @@ const useStyles = makeStyles({
     textAlign: "center",
     color: "grey",
   },
+
+  metaComponent: {
+    padding: "5px",
+    width: "300px",
+    height: "45px",
+    margin: "25px 10px 10px 10px",
+    color: "#dcdcdd",
+    background: "linear-gradient(45deg, #00b712 30%, #20bf55 90%)",
+    borderRadius: "5px",
+    justifyContent: "center",
+  },
+
+  flex: {
+    display: "flex",
+  },
 });
 
 export default useStyles;

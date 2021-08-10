@@ -25,7 +25,7 @@ const AccountMenuContainer = ({ history }) => {
   };
 
   const handleLogOut = () => {
-    dispatch(logOutRequest());
+    dispatch(logOutRequest({ go: history.go }));
     setAnchorEl(null);
   };
 

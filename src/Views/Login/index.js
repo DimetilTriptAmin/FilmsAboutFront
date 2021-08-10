@@ -1,12 +1,13 @@
 import PropTypes from "prop-types";
 import * as Yup from "yup";
-import { Button, Link } from "@material-ui/core";
+import { Button, Link, Container } from "@material-ui/core";
+import { Oval } from "@agney/react-loading";
 import { Formik, Field, Form } from "formik";
 import { FormikTextField } from "formik-material-fields";
 
 import useStyles from "./styles";
 
-const Login = ({ handleFormSubmit }) => {
+const Login = ({ handleFormSubmit, isLoading }) => {
   const classes = useStyles();
 
   const validationSchema = Yup.object({
@@ -48,10 +49,15 @@ const Login = ({ handleFormSubmit }) => {
                 className: classes.input,
               }}
             ></Field>
-
-            <Button className={classes.submit} type='submit'>
-              Log in
-            </Button>
+            {isLoading ? (
+              <Container className={`${classes.metaComponent} ${classes.flex}`}>
+                <Oval width='100' color='#fff' />
+              </Container>
+            ) : (
+              <Button className={classes.submit} type='submit'>
+                Log in
+              </Button>
+            )}
             <Link className={classes.link} href='/registration'>
               I don't have an account yet
             </Link>

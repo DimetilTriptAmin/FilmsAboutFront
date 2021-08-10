@@ -40,13 +40,15 @@ export function* registrationRequest(payload) {
 
 export function* logOutRequest(payload, accessToken) {
   yield window.localStorage.removeItem("accessToken");
-  return yield call(
+  const response = yield call(
     axiosDefault,
     `https://localhost:44364/api/User/logout`,
     "delete",
     payload,
     accessToken,
   );
+  yield call(payload.go(0));
+  return response;
 }
 
 export function* currentFilmRatingRequest(payload, accessToken) {
