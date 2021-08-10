@@ -22,7 +22,7 @@ export function* logInRequest(payload) {
     JSON.stringify(payload.values),
   );
   window.localStorage.setItem("accessToken", response.data.accessToken);
-    yield call(payload.push, '/');
+  yield call(payload.push, "/");
   return response;
 }
 
@@ -34,7 +34,7 @@ export function* registrationRequest(payload) {
     JSON.stringify(payload.values),
   );
   window.localStorage.setItem("accessToken", response.data.accessToken);
-  yield call(payload.push, '/');
+  yield call(payload.push, "/");
   return response;
 }
 
@@ -45,17 +45,6 @@ export function* logOutRequest(payload, accessToken) {
     `https://localhost:44364/api/User/logout`,
     "delete",
     payload,
-    accessToken,
-  );
-}
-
-export function* refreshToken(payload, accessToken) {
-  yield window.localStorage.removeItem("accessToken");
-  return yield call(
-    axiosDefault,
-    `https://localhost:44364/api/User/refresh`,
-    "put",
-    null,
     accessToken,
   );
 }

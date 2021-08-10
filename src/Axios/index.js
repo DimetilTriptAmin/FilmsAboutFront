@@ -24,8 +24,10 @@ axios.interceptors.response.use(
   },
   async (error) => {
     const originalRequest = error.config;
-    if (error.response.status === 401 && error.config && isRetry)
+    if (error.response.status === 401 && error.config && isRetry) {
+      window.localStorage.removeItem("accessToken");
       window.location.href = "http://localhost:3000/login";
+    }
     if (error.response.status === 401 && error.config && !isRetry) {
       try {
         isRetry = true;
@@ -36,11 +38,13 @@ axios.interceptors.response.use(
         window.localStorage.setItem("accessToken", response.data.accessToken);
         originalRequest.headers.Authorization =
           "Bearer " + response.data.accessToken;
+        isRetry = false;
         return axios.request(originalRequest);
       } catch (error) {
-        console.log(error);
+        throw error;
       }
+    } else {
+      throw error;
     }
-    isRetry = false;
   },
 );
