@@ -16,12 +16,9 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   title: {
-    display: "none",
-    [theme.breakpoints.up("sm")]: {
-      display: "block",
-    },
     fontFamily: 'Rockout',
     color: "#fff",
+    marginRight: '10px',
   },
   search: {
     position: "relative",

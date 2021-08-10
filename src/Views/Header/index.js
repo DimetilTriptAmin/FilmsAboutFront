@@ -16,7 +16,7 @@ const Header = ({ isAuthorized, onLogoClick }) => {
     <AppBar position='fixed' className={classes.header}>
       <Toolbar>
         <Button onClick={onLogoClick} className={classes.title}>
-          <Typography variant='h6' noWrap>
+          <Typography variant='h6'>
             Films About
           </Typography>
         </Button>

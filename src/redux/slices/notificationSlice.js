@@ -3,11 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 export const notificationSlice = createSlice({
   name: "notification",
   initialState: {
-    notification: {},
+    data: {},
   },
   reducers: {
     enqueueSnackbarInfo: (state, action) => {
-      state.notification = {
+      state.data = {
         key: action.payload.key,
         message: action.payload.message,
         options: {
@@ -16,7 +16,7 @@ export const notificationSlice = createSlice({
       };
     },
     enqueueSnackbarSuccess: (state, action) => {
-      state.notification = {
+      state.data = {
         key: action.payload.key,
         message: action.payload.message,
         options: {
@@ -25,7 +25,7 @@ export const notificationSlice = createSlice({
       };
     },
     enqueueSnackbarError: (state, action) => {
-      state.notification = {
+      state.data = {
         key: action.payload.key,
         message: action.payload.message,
         options: {
@@ -34,7 +34,7 @@ export const notificationSlice = createSlice({
       };
     },
     removeSnackbar: (state, action) => {
-      state.notification = {};
+      state.data = {};
     },
   },
 });

@@ -6,12 +6,13 @@ import StarIcon from "@material-ui/icons/Star";
 import { Oval } from "@agney/react-loading";
 import PropTypes from "prop-types";
 import { ErrorOutline } from "@material-ui/icons";
+import CommentListContainer from "../../containers/CommentListContainer";
 
 import useStyles from "./styles";
-import CommentContainer from "../../containers/CommentContainer";
 
-const Film = ({ filmData, comments }) => {
+const Film = ({ filmData, userRating, onRatingClick }) => {
   const classes = useStyles();
+  console.log(userRating);
   return (
     <Container className={classes.root} maxWidth='lg'>
       {!filmData.isLoading ? (
@@ -19,7 +20,11 @@ const Film = ({ filmData, comments }) => {
           {!filmData.Loaded ? (
             <div className={`${classes.metaComponent} ${classes.flex}`}>
               <ErrorOutline
-                style={{ fontSize: 200, color: "#fff", margin: "auto" }}
+                style={{
+                  fontSize: 200,
+                  color: "#fff",
+                  margin: "auto",
+                }}
               />
             </div>
           ) : (
@@ -42,8 +47,8 @@ const Film = ({ filmData, comments }) => {
                     <Rating
                       className={classes.rating}
                       name='simple-controlled'
-                      //value={value}
-                      //onChange={onChange}
+                      value={userRating}
+                      onChange={onRatingClick}
                     />
                   </div>
                 </Container>
@@ -56,7 +61,10 @@ const Film = ({ filmData, comments }) => {
 
                     <div className={classes.flex}>
                       <StarIcon
-                        style={{ fontSize: 50, color: "#ffb500" }}
+                        style={{
+                          fontSize: 50,
+                          color: "#ffb500",
+                        }}
                       ></StarIcon>
 
                       <Typography variant='h4' className={classes.text}>
@@ -94,33 +102,7 @@ const Film = ({ filmData, comments }) => {
                 </Typography>
               </Container>
               <div className={classes.divider} />
-              <Container maxWidth='lg'>
-                {!comments.isLoading ? (
-                  comments.Loaded ? (
-                    comments.comments.map((comment, key) => (
-                      <CommentContainer
-                        text={comment.text}
-                        publishDate={comment.publishDate}
-                        userId={comment.userId}
-                        filmId={comment.filmId}
-                        key={key}
-                      />
-                    ))
-                  ) : (
-                    <div className={`${classes.metaComponent} ${classes.flex}`}>
-                      <ErrorOutline
-                        style={{ fontSize: 100, color: "#fff", margin: "auto" }}
-                      />
-                    </div>
-                  )
-                ) : (
-                  <Container
-                    className={`${classes.metaComponent} ${classes.flex}`}
-                  >
-                    <Oval width='100' color='#fff' />
-                  </Container>
-                )}
-              </Container>
+              <CommentListContainer filmId={filmData.id} />
             </Container>
           )}
         </div>
@@ -135,7 +117,6 @@ const Film = ({ filmData, comments }) => {
 
 Film.propTypes = {
   filmData: PropTypes.object.isRequired,
-  comments: PropTypes.object.isRequired,
 };
 
 export default Film;

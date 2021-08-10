@@ -1,5 +1,4 @@
 import axios from "axios";
-import { UnauthorizedError } from "../helper";
 
 export const axiosDefault = (url, method, data, token) => {
   return axios({
@@ -13,8 +12,35 @@ export const axiosDefault = (url, method, data, token) => {
       Authorization: `Bearer ${token}`,
     },
   }).catch((error) => {
-    if (error.response.status === 401)
-      throw UnauthorizedError("Token expired.");
     throw error.response?.data ?? "Server is offline.";
   });
 };
+
+let isRetry = false;
+
+axios.interceptors.response.use(
+  (config) => {
+    return config;
+  },
+  async (error) => {
+    const originalRequest = error.config;
+    if (error.response.status === 401 && error.config && isRetry)
+      window.location.href = "http://localhost:3000/login";
+    if (error.response.status === 401 && error.config && !isRetry) {
+      try {
+        isRetry = true;
+        const response = await axiosDefault(
+          `https://localhost:44364/api/User/refresh`,
+          "put",
+        );
+        window.localStorage.setItem("accessToken", response.data.accessToken);
+        originalRequest.headers.Authorization =
+          "Bearer " + response.data.accessToken;
+        return axios.request(originalRequest);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    isRetry = false;
+  },
+);

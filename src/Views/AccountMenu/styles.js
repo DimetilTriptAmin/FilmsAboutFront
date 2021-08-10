@@ -16,12 +16,8 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
   },
   title: {
-    display: "none",
     alignSelf: "center",
     margin: "0 10px",
-    [theme.breakpoints.up("sm")]: {
-      display: "block",
-    },
     color: "#fff",
   },
 }));
