@@ -85,6 +85,26 @@ export function* commentListRequest(payload) {
   );
 }
 
+export function* commentSubmitRequest(payload, accessToken) {
+  return yield call(
+    axiosDefault,
+    `https://localhost:44364/api/Comment/createComment`,
+    "post",
+    payload,
+    accessToken,
+  );
+}
+
+export function* commentDeleteRequest(payload, accessToken) {
+  return yield call(
+    axiosDefault,
+    `https://localhost:44364/api/Comment/deleteComment/${payload}`,
+    "delete",
+    null,
+    accessToken,
+  );
+}
+
 //#endregion
 
 //#region Film's call Methods

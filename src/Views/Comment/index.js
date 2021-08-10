@@ -3,11 +3,16 @@ import { Rating } from "@material-ui/lab";
 import ReactRoundedImage from "react-rounded-image";
 import useStyles from "./styles";
 import PropTypes from "prop-types";
+import { useSelector } from "react-redux";
 
+import { usernameSelector } from "../../redux/selectors";
 import CommentMenuContainer from "../../containers/CommentMenuContainer";
 
-const Comment = ({ username, avatar, rating, publishDate, text }) => {
+const Comment = ({ username, avatar, rating, publishDate, text, id }) => {
   const classes = useStyles();
+
+  const AuthorizedUsername = useSelector(usernameSelector);
+
   return (
     <Container className={classes.commentContainer}>
       <div>
@@ -38,7 +43,9 @@ const Comment = ({ username, avatar, rating, publishDate, text }) => {
           </div>
           <div className={classes.flex}>
             <div className={classes.menuContainer}>
-              <CommentMenuContainer />
+              {AuthorizedUsername === username && (
+                <CommentMenuContainer id={id} />
+              )}
             </div>
           </div>
         </div>
