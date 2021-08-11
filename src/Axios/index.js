@@ -38,12 +38,12 @@ axios.interceptors.response.use(
         window.localStorage.setItem("accessToken", response.data.accessToken);
         originalRequest.headers.Authorization =
           "Bearer " + response.data.accessToken;
-        isRetry = false;
         return axios.request(originalRequest);
       } catch (error) {
         throw error;
       }
     } else {
+      isRetry = false;
       throw error;
     }
   },
