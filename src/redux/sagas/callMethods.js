@@ -22,7 +22,7 @@ export function* logInRequest(payload) {
     JSON.stringify(payload.values),
   );
   window.localStorage.setItem("accessToken", response.data.accessToken);
-    yield call(payload.push, '/');
+  yield call(payload.push, "/");
   return response;
 }
 
@@ -34,30 +34,21 @@ export function* registrationRequest(payload) {
     JSON.stringify(payload.values),
   );
   window.localStorage.setItem("accessToken", response.data.accessToken);
-  yield call(payload.push, '/');
+  yield call(payload.push, "/");
   return response;
 }
 
 export function* logOutRequest(payload, accessToken) {
   yield window.localStorage.removeItem("accessToken");
-  return yield call(
+  const response = yield call(
     axiosDefault,
     `https://localhost:44364/api/User/logout`,
     "delete",
     payload,
     accessToken,
   );
-}
-
-export function* refreshToken(payload, accessToken) {
-  yield window.localStorage.removeItem("accessToken");
-  return yield call(
-    axiosDefault,
-    `https://localhost:44364/api/User/refresh`,
-    "put",
-    null,
-    accessToken,
-  );
+  yield call(payload.go(0));
+  return response;
 }
 
 export function* currentFilmRatingRequest(payload, accessToken) {
@@ -93,6 +84,26 @@ export function* commentListRequest(payload) {
     axiosDefault,
     `https://localhost:44364/api/Comment/getAll${payload}`,
     "get",
+  );
+}
+
+export function* commentSubmitRequest(payload, accessToken) {
+  return yield call(
+    axiosDefault,
+    `https://localhost:44364/api/Comment/createComment`,
+    "post",
+    payload,
+    accessToken,
+  );
+}
+
+export function* commentDeleteRequest(payload, accessToken) {
+  return yield call(
+    axiosDefault,
+    `https://localhost:44364/api/Comment/deleteComment/${payload}`,
+    "delete",
+    null,
+    accessToken,
   );
 }
 

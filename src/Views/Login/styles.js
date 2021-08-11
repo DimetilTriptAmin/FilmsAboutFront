@@ -1,79 +1,95 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
-    '&:MuiContainer-maxWidthLg': {
-        backgroundColor: '#000',
+  "&:MuiContainer-maxWidthLg": {
+    backgroundColor: "#000",
+  },
+  formContainer: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    width: "400px",
+    boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.55)",
+    padding: "20px",
+    borderRadius: "20px",
+    color: "#fff",
+    margin: "0 auto",
+    marginTop: "150px",
+    backgroundColor: "#242322",
+  },
+
+  form: {
+    display: "flex",
+    flexDirection: "column",
+    width: "80%",
+  },
+
+  title: {
+    fontSize: "50px",
+    fontFamily: "Roboto",
+    fontWeight: "700",
+    textAlign: "center",
+  },
+
+  input: {
+    color: "white",
+    border: "0",
+    fontSize: "20px",
+    width: "100%",
+    "& label.Mui-focused": {
+      color: "white",
     },
-    formContainer: {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        width: '400px',
-        boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.55)',
-        padding: '20px',
-        borderRadius: '20px',
-        color: '#fff', 
-        margin: '0 auto',
-        marginTop: '150px',
-        backgroundColor: '#242322',
+    "& .MuiInput-underline:after": {
+      borderBottomColor: "white",
+    },
+    "& .MuiInput-underline:before": {
+      borderBottomColor: "grey",
+    },
+    "& .MuiInput-underline": {
+      borderBottomColor: "green",
     },
 
-    form: {
-        display: 'flex',
-        flexDirection: 'column',
-        width: '80%',
+    "& .MuiInputLabel-root": {
+      color: "grey",
     },
 
-    title: {
-        fontSize: '50px',
-        fontFamily: 'Roboto',
-        fontWeight: '700',
-        textAlign: 'center',
-    },
+    "& .MuiInput-underline:hover:not($disabled):not($focused):not($error):before":
+      {
+        borderBottom: `2px solid #ffffff`,
+      },
+  },
 
-    input: {
-        color: 'white',
-        border: '0',
-        fontSize: '20px',
-        width: '100%',
-        '& label.Mui-focused': {
-            color: 'white',
-        },
-        '& .MuiInput-underline:after': {
-            borderBottomColor: 'white',
-        },
-        '& .MuiInput-underline:before': {
-            borderBottomColor: 'grey',
-        },
-        '& .MuiInput-underline': {
-            borderBottomColor: 'green',
-        },
-        
-        '& .MuiInputLabel-root': {
-            color: 'grey',
-        },
+  field: {
+    margin: "10px 10px 30px 10px",
+    width: "300px",
+  },
 
-        '& .MuiInput-underline:hover:not($disabled):not($focused):not($error):before': {
-            borderBottom: `2px solid #ffffff`,
-          },
-    },
+  submit: {
+    margin: "25px 10px 10px 10px",
+    color: "#dcdcdd",
+    background: "linear-gradient(45deg, #00b712 30%, #20bf55 90%)",
+    border: "0",
+    fontSize: "20px",
+  },
+  link: {
+    textAlign: "center",
+    color: "grey",
+  },
 
-    field: {
-        margin: '10px 10px 30px 10px',
-        width: '300px',
-    },
+  metaComponent: {
+    padding: "5px",
+    width: "300px",
+    height: "45px",
+    margin: "25px 10px 10px 10px",
+    color: "#dcdcdd",
+    background: "linear-gradient(45deg, #00b712 30%, #20bf55 90%)",
+    borderRadius: "5px",
+    justifyContent: "center",
+  },
 
-    submit: {
-        margin: '25px 10px 10px 10px',
-        color: '#dcdcdd',
-        background: 'linear-gradient(45deg, #00b712 30%, #20bf55 90%)',
-        border: '0',
-        fontSize: '20px',
-    },
-    link: {
-        textAlign: 'center',
-        color: 'grey',
-    },
+  flex: {
+    display: "flex",
+  },
 });
 
 export default useStyles;

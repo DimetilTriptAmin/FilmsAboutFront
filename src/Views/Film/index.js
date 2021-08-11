@@ -12,7 +12,6 @@ import useStyles from "./styles";
 
 const Film = ({ filmData, userRating, onRatingClick }) => {
   const classes = useStyles();
-  console.log(userRating);
   return (
     <Container className={classes.root} maxWidth='lg'>
       {!filmData.isLoading ? (

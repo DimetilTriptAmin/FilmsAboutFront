@@ -3,17 +3,18 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logOutRequest, goToSettingsRequest } from "../redux/actions";
 import { withRouter } from "react-router";
-import { usernameSelector } from "../redux/selectors";
+import { usernameSelector, isAuthorizedSelector } from "../redux/selectors";
 import { userRequest } from "../redux/actions";
 
 import AccountMenu from "../views/AccountMenu";
 
-const AccountMenuContainer = ({history}) => {
+const AccountMenuContainer = ({ history }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const isMenuOpen = Boolean(anchorEl);
 
   const dispatch = useDispatch();
   const username = useSelector(usernameSelector);
+  const isAuthorized = useSelector(isAuthorizedSelector);
 
   const handleMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -24,7 +25,7 @@ const AccountMenuContainer = ({history}) => {
   };
 
   const handleLogOut = () => {
-    dispatch(logOutRequest());
+    dispatch(logOutRequest({ go: history.go }));
     setAnchorEl(null);
   };
 
@@ -34,8 +35,8 @@ const AccountMenuContainer = ({history}) => {
   };
 
   useEffect(() => {
-    dispatch(userRequest());
-  }, [dispatch]);
+    if (isAuthorized) dispatch(userRequest());
+  }, [dispatch, isAuthorized]);
 
   return (
     <AccountMenu

@@ -11,6 +11,7 @@ const CommentMenu = ({
   anchorEl,
   handleMenuClose,
   handleMenuOpen,
+  deleteCommentClickHandler,
 }) => {
   const classes = useStyles();
   return (
@@ -33,8 +34,12 @@ const CommentMenu = ({
         open={isMenuOpen}
         onClose={handleMenuClose}
       >
-        <MenuItem className={classes.menuItem}>Edit</MenuItem>
-        <MenuItem className={classes.menuItem}>Delete</MenuItem>
+        <MenuItem
+          className={classes.menuItem}
+          onClick={deleteCommentClickHandler}
+        >
+          Delete
+        </MenuItem>
       </Menu>
     </div>
   );
