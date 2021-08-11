@@ -11,12 +11,12 @@ const FilmCardContainer = ({ history, filmData }) => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    dispatch(goToFilmRequest({ push: history.push, id: id }));
+    dispatch(goToFilmRequest({ push: history.push, title: title }));
   };
 
   return (
     <FilmCard
-      key={id}
+      id={id}
       title={title}
       description={description}
       rating={rating}

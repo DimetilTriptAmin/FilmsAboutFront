@@ -14,7 +14,6 @@ export function* genericWorker(action) {
 
   const rawMethodName = type.substring(type.lastIndexOf("/") + 1);
   const methodName = lodash.camelCase(rawMethodName);
-  console.log(methodName);
   const accessToken = accessTokenSelector();
   try {
     const response = yield callMethods[methodName](payload, accessToken);

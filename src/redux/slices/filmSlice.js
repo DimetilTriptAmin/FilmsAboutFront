@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const filmSlice = createSlice({
   name: "film",
   initialState: {
+    idFetched: false,
     isLoading: true,
     Loaded: false,
     id: 0,
@@ -16,12 +17,15 @@ export const filmSlice = createSlice({
     FILM_SUCCESS: (state, action) => {
       state.isLoading = false;
       state.Loaded = true;
-      state.id = action.payload.id;
       state.title = action.payload.title;
       state.poster = action.payload.poster;
       state.description = action.payload.description;
       state.rating = action.payload.rating;
       state.trailerLink = action.payload.trailerLink;
+    },
+    FILM_ID_SUCCESS: (state, action) => {
+      state.id = action.payload;
+      state.idFetched = true;
     },
     FILM_FAILURE: (state, action) => {
       state.isLoading = false;
@@ -29,6 +33,7 @@ export const filmSlice = createSlice({
     FILM_DATA_RESET: (state, action) => {
       state.isLoading = true;
       state.Loaded = false;
+      state.idFetched = false;
     },
     SET_FILM_RATING_SUCCESS: (state, action) => {
       state.rating = action.payload;

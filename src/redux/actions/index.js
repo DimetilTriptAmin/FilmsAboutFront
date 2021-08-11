@@ -13,6 +13,8 @@ export const commentDeleteRequest = createAction(
   "commentList/COMMENT_DELETE_REQUEST",
 );
 
+export const filmIdRequest = createAction("film/FILM_ID_REQUEST");
+
 export const currentFilmRatingRequest = createAction(
   "user/CURRENT_FILM_RATING_REQUEST",
 );

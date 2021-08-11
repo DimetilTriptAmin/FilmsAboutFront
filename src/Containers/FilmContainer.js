@@ -4,12 +4,14 @@ import { useParams } from "react-router-dom";
 
 import Film from "../views/Film";
 import { FILM_DATA_RESET } from "../redux/slices/filmSlice";
+import { COMMENTS_DATA_RESET } from "../redux/slices/commentListSlice";
 import { CURRENT_FILM_SET_RATING } from "../redux/slices/userSlice";
 import {
   filmRequest,
   commentListRequest,
   currentFilmRatingRequest,
   setFilmRatingRequest,
+  filmIdRequest,
 } from "../redux/actions";
 import {
   filmDataSelector,
@@ -24,23 +26,27 @@ const FilmContainer = () => {
   const userRating = useSelector(userRatingSelector);
   const isAuthorized = useSelector(isAuthorizedSelector);
 
-  const { id } = useParams();
+  const { title } = useParams();
 
   const onRatingClick = (event, value) => {
     if (value != null) {
-      dispatch(setFilmRatingRequest({ filmId: id, rate: value }));
+      dispatch(setFilmRatingRequest({ filmId: filmData.id, rate: value }));
       dispatch(CURRENT_FILM_SET_RATING(value));
     }
   };
 
   useEffect(() => {
-    dispatch(filmRequest(id));
-    dispatch(commentListRequest(id));
-    if (isAuthorized) dispatch(currentFilmRatingRequest(id));
+    dispatch(filmIdRequest(title));
+    if (filmData.idFetched) {
+      dispatch(filmRequest(filmData.id));
+      dispatch(commentListRequest(filmData.id));
+      if (isAuthorized) dispatch(currentFilmRatingRequest(filmData.id));
+    }
     return () => {
+      dispatch(COMMENTS_DATA_RESET());
       dispatch(FILM_DATA_RESET());
     };
-  }, [id, dispatch, isAuthorized]);
+  }, [filmData.id, dispatch, isAuthorized, title]);
 
   return (
     <Film

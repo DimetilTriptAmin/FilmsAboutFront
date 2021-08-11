@@ -144,8 +144,19 @@ export function* filmRequest(payload) {
   );
 }
 
+export function* filmIdRequest(payload) {
+  return yield call(
+    axiosDefault,
+    `https://localhost:44364/api/Film/getId/${payload.replaceAll("-", " ")}`,
+    "get",
+  );
+}
+
 export function* goToFilmRequest(payload) {
-  yield call(payload.push, "/film" + payload.id);
+  yield call(
+    payload.push,
+    "/" + payload.title.replace(/\s+/g, "-").toLowerCase(),
+  );
 }
 
 //#endregion
