@@ -31,6 +31,8 @@ const UserSettingsContainer = () => {
       let imageFile = e.target.files[0];
       const reader = new FileReader();
       reader.onload = (x) => {
+        console.log(x.target.result);
+        console.log(imageFile);
         setImageData({
           ...imageData,
           imageFile,
@@ -46,7 +48,9 @@ const UserSettingsContainer = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(
-      updateUserRequest({ avatar: RemoveBase64(imageData.imageSource) }),
+      updateUserRequest({
+        avatar: RemoveBase64(imageData.imageSource, imageData.imageFile.type),
+      }),
     );
   };
 

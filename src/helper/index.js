@@ -7,7 +7,7 @@ export class UnauthorizedError extends Error {
   }
 }
 
-export const DecodeBase64 = (value) => `data:image/jpeg;base64,${value}`;
+export const DecodeBase64 = (value) => `data:image/png;base64, ${value}`;
 
-export const RemoveBase64 = (value) =>
-  value.substring("data:image/jpeg;base64,".length);
+export const RemoveBase64 = (value, dataType) =>
+  value.substring(`data:${dataType};base64,`.length);

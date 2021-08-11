@@ -30,6 +30,9 @@ export const filmSlice = createSlice({
       state.isLoading = true;
       state.Loaded = false;
     },
+    SET_FILM_RATING_SUCCESS: (state, action) => {
+      state.rating = action.payload;
+    },
   },
 });
 

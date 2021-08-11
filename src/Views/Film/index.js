@@ -44,6 +44,7 @@ const Film = ({ filmData, userRating, onRatingClick }) => {
                       Rate it:
                     </Typography>
                     <Rating
+                      readOnly={userRating}
                       className={classes.rating}
                       name='simple-controlled'
                       value={userRating}
