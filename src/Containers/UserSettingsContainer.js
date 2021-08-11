@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { userSelector } from "../redux/selectors";
 import { useDispatch } from "react-redux";
 
-import { updateUserRequest } from "../redux/actions";
+import { updateUserRequest, changePasswordRequest } from "../redux/actions";
 import UserSettings from "../views/UserSettings";
 import { DecodeBase64, RemoveBase64 } from "../helper";
 
@@ -31,8 +31,6 @@ const UserSettingsContainer = () => {
       let imageFile = e.target.files[0];
       const reader = new FileReader();
       reader.onload = (x) => {
-        console.log(x.target.result);
-        console.log(imageFile);
         setImageData({
           ...imageData,
           imageFile,
@@ -54,6 +52,15 @@ const UserSettingsContainer = () => {
     );
   };
 
+  const handleChangePasswordSubmit = (values) => {
+    dispatch(
+      changePasswordRequest({
+        oldPassword: values.Password,
+        newPassword: values.NewPassword,
+      }),
+    );
+  };
+
   return (
     <div>
       <UserSettings
@@ -61,6 +68,7 @@ const UserSettingsContainer = () => {
         showPreview={showPreview}
         userData={userData}
         handleSubmit={handleSubmit}
+        handleChangePasswordSubmit={handleChangePasswordSubmit}
       />
     </div>
   );

@@ -14,6 +14,16 @@ export function* userRequest(payload, accessToken) {
   );
 }
 
+export function* changePasswordRequest(payload, accessToken) {
+  return yield call(
+    axiosDefault,
+    `https://localhost:44364/api/User/changePassword`,
+    "put",
+    payload,
+    accessToken,
+  );
+}
+
 export function* logInRequest(payload) {
   const response = yield call(
     axiosDefault,

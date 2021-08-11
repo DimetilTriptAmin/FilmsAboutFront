@@ -16,6 +16,10 @@ export const commentDeleteRequest = createAction(
 export const currentFilmRatingRequest = createAction(
   "user/CURRENT_FILM_RATING_REQUEST",
 );
+export const changePasswordRequest = createAction(
+  "user/CHANGE_PASSWORD_REQUEST",
+);
+
 export const goToSettingsRequest = createAction("user/GO_TO_SETTINGS_REQUEST");
 export const userRequest = createAction("user/USER_REQUEST");
 
