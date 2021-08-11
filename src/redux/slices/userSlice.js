@@ -7,17 +7,18 @@ export const userSlice = createSlice({
     email: "",
     avatar: "",
     currentFilmRating: 0,
-    isLoading: false,
+    isLoading: true,
+    isAuthorizationLoading: false,
   },
   reducers: {
     USER_SUCCESS: (state, action) => {
       state.name = action.payload.userName;
       state.email = action.payload.email;
       state.avatar = action.payload.avatar;
+      state.isLoading = false;
     },
     USER_FAILURE: (state, action) => {
       state.isLoading = false;
-      console.log(state.isLoading, "FAILURE");
     },
     CURRENT_FILM_RATING_SUCCESS: (state, action) => {
       state.currentFilmRating = action.payload.rate;
@@ -27,21 +28,21 @@ export const userSlice = createSlice({
     },
     UPDATE_SUCCESS: (state, action) => {
       state.avatar = action.payload.avatar;
-    }
+    },
     LOADING_TRUE: (state) => {
-      state.isLoading = true;
+      state.isAuthorizationLoading = true;
     },
     LOG_IN_SUCCESS: (state) => {
-      state.isLoading = false;
+      state.isAuthorizationLoading = false;
     },
     LOG_IN_FAILURE: (state) => {
-      state.isLoading = false;
+      state.isAuthorizationLoading = false;
     },
     REGISTRATION_SUCCESS: (state) => {
-      state.isLoading = false;
+      state.isAuthorizationLoading = false;
     },
     REGISTRATION_FAILURE: (state) => {
-      state.isLoading = false;
+      state.isAuthorizationLoading = false;
     },
   },
 });

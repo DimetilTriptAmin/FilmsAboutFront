@@ -6,7 +6,7 @@ import Search from "../views/Search";
 import { filmListSelector } from "../redux/selectors";
 import { filmListRequest } from "../redux/actions";
 
-const SearchContainer = ({ history }) => {
+const SearchContainer = () => {
   const dispatch = useDispatch();
 
   const [anchorEl, setAnchorEl] = useState(null);

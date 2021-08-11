@@ -1,16 +1,18 @@
 import React from "react";
-import Login from "../views/Login";
 import { useDispatch } from "react-redux";
-import { logInRequest } from "../redux/actions";
 import { withRouter } from "react-router";
 import { useSelector } from "react-redux";
-import { userLoadingSelector } from "../redux/selectors";
+import PropTypes from "prop-types";
+
+import { logInRequest } from "../redux/actions";
+import { userAuthorizeLoadingSelector } from "../redux/selectors";
 import { LOADING_TRUE } from "../redux/slices/userSlice";
+import Login from "../views/Login";
 
 const LoginContainer = ({ history }) => {
   const dispatch = useDispatch();
 
-  const isLoading = useSelector(userLoadingSelector);
+  const isLoading = useSelector(userAuthorizeLoadingSelector);
 
   const handleFormSubmit = (values) => {
     dispatch(LOADING_TRUE());
@@ -18,6 +20,10 @@ const LoginContainer = ({ history }) => {
   };
 
   return <Login handleFormSubmit={handleFormSubmit} isLoading={isLoading} />;
+};
+
+LoginContainer.propTypes = {
+  history: PropTypes.object.isRequired,
 };
 
 export default withRouter(LoginContainer);

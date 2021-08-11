@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+
+import Film from "../views/Film";
 import { FILM_DATA_RESET } from "../redux/slices/filmSlice";
 import { CURRENT_FILM_SET_RATING } from "../redux/slices/userSlice";
-
 import {
   filmRequest,
   commentListRequest,
@@ -15,7 +16,6 @@ import {
   userRatingSelector,
   isAuthorizedSelector,
 } from "../redux/selectors";
-import Film from "../views/Film";
 
 const FilmContainer = () => {
   const dispatch = useDispatch();

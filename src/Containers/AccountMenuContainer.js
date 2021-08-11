@@ -1,11 +1,12 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { logOutRequest, goToSettingsRequest } from "../redux/actions";
 import { withRouter } from "react-router";
+import PropTypes from "prop-types";
+
 import { usernameSelector, isAuthorizedSelector } from "../redux/selectors";
 import { userRequest } from "../redux/actions";
-
+import { logOutRequest, goToSettingsRequest } from "../redux/actions";
 import AccountMenu from "../views/AccountMenu";
 
 const AccountMenuContainer = ({ history }) => {
@@ -35,9 +36,9 @@ const AccountMenuContainer = ({ history }) => {
   };
 
   useEffect(() => {
-    if (isAuthorized){
+    if (isAuthorized) {
       dispatch(userRequest());
-    } 
+    }
   }, [dispatch, isAuthorized]);
 
   return (
@@ -51,6 +52,10 @@ const AccountMenuContainer = ({ history }) => {
       username={username}
     />
   );
+};
+
+AccountMenuContainer.propTypes = {
+  history: PropTypes.object.isRequired,
 };
 
 export default withRouter(AccountMenuContainer);

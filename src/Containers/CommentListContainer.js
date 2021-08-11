@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { commentListRequest, commentSubmitRequest } from "../redux/actions";
 import PropTypes from "prop-types";
+
+import { commentListRequest, commentSubmitRequest } from "../redux/actions";
+import CommentList from "../views/CommentList";
 import {
   filmCommentListSelector,
   isAuthorizedSelector,
 } from "../redux/selectors";
-import CommentList from "../views/CommentList";
 
 const CommentContainer = ({ filmId }) => {
   const dispatch = useDispatch();

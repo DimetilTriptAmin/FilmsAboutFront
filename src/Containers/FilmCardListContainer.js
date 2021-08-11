@@ -1,6 +1,7 @@
-import { FilmCardList } from "../views/FilmCardList";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
+import { FilmCardList } from "../views/FilmCardList";
 import { filmListRequest } from "../redux/actions";
 import { filmListSelector } from "../redux/selectors";
 

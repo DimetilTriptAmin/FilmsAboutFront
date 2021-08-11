@@ -1,8 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { commentDeleteRequest } from "../redux/actions/index";
+import PropTypes from "prop-types";
 
+import { commentDeleteRequest } from "../redux/actions/index";
 import CommentMenu from "../views/CommentMenu";
 
 const CommentMenuContainer = ({ id }) => {
@@ -31,6 +32,10 @@ const CommentMenuContainer = ({ id }) => {
       deleteCommentClickHandler={deleteCommentClickHandler}
     />
   );
+};
+
+CommentMenuContainer.propTypes = {
+  id: PropTypes.number.isRequired,
 };
 
 export default CommentMenuContainer;

@@ -1,5 +1,3 @@
-import { unwrapResult } from "@reduxjs/toolkit";
-
 export const isObjectEmpty = (obj) => Object.keys(obj).length === 0;
 
 export class UnauthorizedError extends Error {
@@ -9,11 +7,7 @@ export class UnauthorizedError extends Error {
   }
 }
 
-export function DecodeBase64(value){
-  return `data:image/jpeg;base64,${value}`;
-}
+export const DecodeBase64 = (value) => `data:image/jpeg;base64,${value}`;
 
-export function RemoveBase64(value){
-  const result = value.substring('data:image/jpeg;base64,'.length - 1);
-  return result;
-}
+export const RemoveBase64 = (value) =>
+  value.substring("data:image/jpeg;base64,".length);

@@ -116,6 +116,8 @@ const Film = ({ filmData, userRating, onRatingClick }) => {
 
 Film.propTypes = {
   filmData: PropTypes.object.isRequired,
+  userRate: PropTypes.number.isRequired,
+  onRatingClick: PropTypes.func.isRequired,
 };
 
 export default Film;
