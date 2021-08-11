@@ -60,8 +60,8 @@ const CommentList = ({ commentList, isAuthorized, commentSubmitClick }) => {
               rating={comment.rating}
               key={key}
             />
-          ))
-        ) : (
+          )).sort((c1, c2) => (new Date(c2.props.publishDate) - new Date(c1.props.publishDate)))
+          ) : (
           <div className={`${classes.metaComponent} ${classes.flex}`}>
             <ErrorOutline
               style={{ fontSize: 100, color: "#fff", margin: "auto" }}
