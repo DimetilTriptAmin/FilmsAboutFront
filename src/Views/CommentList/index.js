@@ -72,13 +72,11 @@ const CommentList = ({ commentList, isAuthorized, commentSubmitClick }) => {
         <Container className={`${classes.metaComponent} ${classes.flex}`}>
           <Oval width='100' color='#fff' />
         </Container>
-      )}
-    </Container>
-  );
+    );
 };
 
 CommentList.propTypes = {
-  commentList: PropTypes.object.isRequired,
+    commentList: PropTypes.object.isRequired,
 };
 
 export default CommentList;
