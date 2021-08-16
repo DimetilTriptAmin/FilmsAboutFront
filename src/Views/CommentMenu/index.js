@@ -50,6 +50,7 @@ CommentMenu.propTypes = {
   anchorEl: PropTypes.any,
   handleMenuClose: PropTypes.func.isRequired,
   handleMenuOpen: PropTypes.func.isRequired,
+  deleteCommentClickHandler: PropTypes.func.isRequired,
 };
 
 export default CommentMenu;

@@ -44,6 +44,7 @@ const Film = ({ filmData, userRating, onRatingClick }) => {
                       Rate it:
                     </Typography>
                     <Rating
+                      readOnly={Boolean(userRating)}
                       className={classes.rating}
                       name='simple-controlled'
                       value={userRating}
@@ -116,6 +117,8 @@ const Film = ({ filmData, userRating, onRatingClick }) => {
 
 Film.propTypes = {
   filmData: PropTypes.object.isRequired,
+  userRate: PropTypes.number,
+  onRatingClick: PropTypes.func.isRequired,
 };
 
 export default Film;

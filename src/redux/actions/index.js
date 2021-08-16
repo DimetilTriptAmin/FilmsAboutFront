@@ -13,18 +13,22 @@ export const commentDeleteRequest = createAction(
   "commentList/COMMENT_DELETE_REQUEST",
 );
 
+export const filmIdRequest = createAction("film/FILM_ID_REQUEST");
+
 export const currentFilmRatingRequest = createAction(
   "user/CURRENT_FILM_RATING_REQUEST",
 );
+export const changePasswordRequest = createAction(
+  "user/CHANGE_PASSWORD_REQUEST",
+);
+
 export const goToSettingsRequest = createAction("user/GO_TO_SETTINGS_REQUEST");
 export const userRequest = createAction("user/USER_REQUEST");
 
 export const setFilmRatingRequest = createAction(
-  "user/SET_FILM_RATING_REQUEST",
+  "film/SET_FILM_RATING_REQUEST",
 );
-export const updateUserRequest = createAction(
-  "user/UPDATE_REQUEST",
-);
+export const updateUserRequest = createAction("user/UPDATE_REQUEST");
 
 export const userRatingRequest = createAction("ratingList/USER_RATING_REQUEST");
 

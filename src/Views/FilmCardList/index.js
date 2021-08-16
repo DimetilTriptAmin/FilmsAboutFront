@@ -6,6 +6,7 @@ import { ErrorOutline } from "@material-ui/icons";
 
 const FilmCardList = (props) => {
   const classes = useStyles();
+  console.log(props.films);
   return (
     <div className={classes.container}>
       {props.films.isLoading ? (

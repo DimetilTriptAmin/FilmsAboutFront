@@ -1,18 +1,27 @@
 import React from "react";
-import AuthorizationMenu from "../views/AuthorizationMenu/index";
 import { withRouter } from "react-router";
+import PropTypes from "prop-types";
 
-const AuthorizationMenuContainer = ({history}) => {
+import AuthorizationMenu from "../views/AuthorizationMenu/index";
 
+const AuthorizationMenuContainer = ({ history }) => {
   const onLoginClick = () => {
-    history.push('/login');
-  }
+    history.push("/login");
+  };
   const onRegistrationClick = () => {
-    history.push('/registration');
-  }
+    history.push("/registration");
+  };
 
-  return <AuthorizationMenu onLoginClick={onLoginClick} onRegistrationClick={onRegistrationClick}/>;
+  return (
+    <AuthorizationMenu
+      onLoginClick={onLoginClick}
+      onRegistrationClick={onRegistrationClick}
+    />
+  );
 };
 
-const AuthorizationMenuContainerWithRouter = withRouter(AuthorizationMenuContainer);
-export default AuthorizationMenuContainerWithRouter;
+AuthorizationMenuContainer.propTypes = {
+  history: PropTypes.object.isRequired,
+};
+
+export default withRouter(AuthorizationMenuContainer);

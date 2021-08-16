@@ -20,6 +20,7 @@ let isRetry = false;
 
 axios.interceptors.response.use(
   (config) => {
+    isRetry = false;
     return config;
   },
   async (error) => {
@@ -40,7 +41,7 @@ axios.interceptors.response.use(
           "Bearer " + response.data.accessToken;
         return axios.request(originalRequest);
       } catch (error) {
-        throw error;
+        isRetry = false;
       }
     } else {
       isRetry = false;

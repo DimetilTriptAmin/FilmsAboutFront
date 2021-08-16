@@ -14,6 +14,16 @@ export function* userRequest(payload, accessToken) {
   );
 }
 
+export function* changePasswordRequest(payload, accessToken) {
+  return yield call(
+    axiosDefault,
+    `https://localhost:44364/api/User/changePassword`,
+    "put",
+    payload,
+    accessToken,
+  );
+}
+
 export function* logInRequest(payload) {
   const response = yield call(
     axiosDefault,
@@ -134,8 +144,19 @@ export function* filmRequest(payload) {
   );
 }
 
+export function* filmIdRequest(payload) {
+  return yield call(
+    axiosDefault,
+    `https://localhost:44364/api/Film/getId/${payload.replaceAll("-", " ")}`,
+    "get",
+  );
+}
+
 export function* goToFilmRequest(payload) {
-  yield call(payload.push, "/film" + payload.id);
+  yield call(
+    payload.push,
+    "/" + payload.title.replace(/\s+/g, "-").toLowerCase(),
+  );
 }
 
 //#endregion

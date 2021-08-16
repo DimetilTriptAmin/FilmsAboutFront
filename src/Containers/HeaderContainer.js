@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { withRouter } from "react-router";
+import PropTypes from "prop-types";
 
 import { isAuthorizedSelector } from "../redux/selectors";
 import Header from "../views/Header";
@@ -25,6 +26,10 @@ const HeaderContainer = ({ history }) => {
       handleClick={handleClick}
     />
   );
+};
+
+HeaderContainer.propTypes = {
+  history: PropTypes.object.isRequired,
 };
 
 export default withRouter(HeaderContainer);

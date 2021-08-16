@@ -1,5 +1,6 @@
 import { withRouter } from "react-router";
 import { useDispatch } from "react-redux";
+import PropTypes from "prop-types";
 
 import { FilmCard } from "../views/FilmCard";
 import { goToFilmRequest } from "../redux/actions";
@@ -10,12 +11,12 @@ const FilmCardContainer = ({ history, filmData }) => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    dispatch(goToFilmRequest({ push: history.push, id: id }));
+    dispatch(goToFilmRequest({ push: history.push, title: title }));
   };
 
   return (
     <FilmCard
-      key={id}
+      id={id}
       title={title}
       description={description}
       rating={rating}
@@ -24,6 +25,11 @@ const FilmCardContainer = ({ history, filmData }) => {
       handleClick={handleClick}
     />
   );
+};
+
+FilmCardContainer.propTypes = {
+  history: PropTypes.object.isRequired,
+  filmData: PropTypes.object.isRequired,
 };
 
 export default withRouter(FilmCardContainer);

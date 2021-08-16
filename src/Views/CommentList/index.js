@@ -60,8 +60,8 @@ const CommentList = ({ commentList, isAuthorized, commentSubmitClick }) => {
               rating={comment.rating}
               key={key}
             />
-          ))
-        ) : (
+          )).sort((c1, c2) => (new Date(c2.props.publishDate) - new Date(c1.props.publishDate)))
+          ) : (
           <div className={`${classes.metaComponent} ${classes.flex}`}>
             <ErrorOutline
               style={{ fontSize: 100, color: "#fff", margin: "auto" }}
@@ -72,11 +72,15 @@ const CommentList = ({ commentList, isAuthorized, commentSubmitClick }) => {
         <Container className={`${classes.metaComponent} ${classes.flex}`}>
           <Oval width='100' color='#fff' />
         </Container>
-    );
+      )}
+    </Container>
+  );
 };
 
 CommentList.propTypes = {
-    commentList: PropTypes.object.isRequired,
+  commentList: PropTypes.object.isRequired,
+  isAuthorized: PropTypes.bool.isRequired,
+  commentSubmitClick: PropTypes.func.isRequired,
 };
 
 export default CommentList;
